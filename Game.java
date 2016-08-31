@@ -32,7 +32,7 @@ public class Game {
     public void playerPosition() {
         int yPosition = player.yPosition(map.SIZE_Y);
         int xPosition = player.xPosition(map.SIZE_X);
-        map.sunkShip(yPosition, xPosition);
+        map.shipShot(yPosition, xPosition);
     }
 
     // Закончена ли игра, или нет?

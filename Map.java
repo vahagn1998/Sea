@@ -98,24 +98,59 @@ public class Map {
 
     }
 
-    public void sunkShip(int y, int x) {
-        switch (cells[y][x]) {
-            case 'X':
-                System.out.println("Вы попали по кораблю.");
-                cells[y][x] = '-';
-                cellsFake[y][x] = ('-');
-                break;
-            case 'o':
-                System.out.println("Вы промазали.");
-                cells[y][x] = '*';
-                cellsFake[y][x] = ('*');
-                break;
-            case '-':
-                System.out.println("Вы уже стреляли по этому месту.");
-                break;
-            case '*':
-                System.out.println("Вы уже стреляли по этому месту.");
-                break;
+    public void shipShot(int y, int x) {
+        if (cells[y][x] == '-' || cells[y][x] == '*') {
+            System.out.println("Вы уже стреляли по этой позиции, попробуйте ещё раз.");
+        }
+        if (cells[y][x] == 'o') {
+            cells[y][x] = '*';
+            System.out.println("Вы промахнулись.");
+        }
+        if (cells[y][x] == 'X') {
+            if (y != SIZE_Y - 1 && x != SIZE_X - 1) {
+                if (cells[y - 1][x] != 'X' && cells[y + 1][x] != 'X' && cells[y][x - 1] != 'X' && cells[y][x + 1] != 'X') {
+                    cells[y][x] = '-';
+                    cellsFake[y][x] = '-';
+                    System.out.println("Вы потопили корабль.");
+                } else {
+                    cells[y][x] = '-';
+                    cellsFake[y][x] = '-';
+                    System.out.println("Вы ранили корабль.");
+                }
+            }
+            if (y != SIZE_Y - 1 && x == SIZE_X - 1) {
+                if (cells[y - 1][x] != 'X' && cells[y + 1][x] != 'X' && cells[y][x - 1] != 'X') {
+                    cells[y][x] = '-';
+                    cellsFake[y][x] = '-';
+                    System.out.println("Вы потопили корабль.");
+                } else {
+                    cells[y][x] = '-';
+                    cellsFake[y][x] = '-';
+                    System.out.println("Вы ранили корабль.");
+                }
+            }
+            if (y == SIZE_Y - 1 && x != SIZE_X - 1) {
+                if (cells[y - 1][x] != 'X' && cells[y][x - 1] != 'X' && cells[y][x + 1] != 'X') {
+                    cells[y][x] = '-';
+                    cellsFake[y][x] = '-';
+                    System.out.println("Вы потопили корабль.");
+                } else {
+                    cells[y][x] = '-';
+                    cellsFake[y][x] = '-';
+                    System.out.println("Вы ранили корабль.");
+                }
+            }
+            if (y == SIZE_Y - 1 && x == SIZE_X - 1) {
+                if (cells[y - 1][x] != 'X' && cells[y][x - 1] != 'X') {
+                    cells[y][x] = '-';
+                    cellsFake[y][x] = '-';
+                    System.out.println("Вы потопили корабль.");
+                } else {
+                    cells[y][x] = '-';
+                    cellsFake[y][x] = '-';
+                    System.out.println("Вы ранили корабль.");
+                }
+            }
         }
     }
 }
