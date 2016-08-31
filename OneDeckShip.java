@@ -1,8 +1,106 @@
 package School.homework.SeaBattle;
 
-/**
- * Created by Администратор on 31.08.2016.
- */
 public class OneDeckShip extends Ship {
+    Map map = new Map();
+    public static final int SIZE_ONE_DECK_SHIP = 5;
+    int removeCash;
+    char[][] cells = map.getCells();
+    int[] oneDeckShipX;
+    int[] oneDeckShipY;
 
+    public void setSizeOneDeckShip(){
+        super.setPositionShipX(SIZE_ONE_DECK_SHIP);
+        super.setPositionShipY(SIZE_ONE_DECK_SHIP);
+        oneDeckShipX = super.getPositionShipX();
+        oneDeckShipY = super.getPositionShipY();
+    }
+
+    public void cycleOneDeckShip() {
+        cyclePositionOneShip();
+        for (int i = 0; i < SIZE_ONE_DECK_SHIP; i++) {
+            checkOnOthersOneDeckShip(oneDeckShipY[i], oneDeckShipX[i]);
+        }
+    }
+
+    public void cyclePositionOneShip() {
+        for (int i = 0; i < SIZE_ONE_DECK_SHIP; i++) {
+            oneDeckShipX[i] = randomPositionShip(map.SIZE_X, SIZE_ONE_DECK_SHIP);
+            oneDeckShipY[i] = randomPositionShip(map.SIZE_Y, SIZE_ONE_DECK_SHIP);
+            checkOneDeckShip(i);
+            map.setOneDeckShip(oneDeckShipY[i], oneDeckShipX[i]);
+        }
+    }
+
+    public void checkOneDeckShip(int i) {
+        while (returnResultCheckPositionOneShip(i)) {
+            oneDeckShipX[i] = randomPositionShip(map.SIZE_X, SIZE_ONE_DECK_SHIP);
+            oneDeckShipY[i] = randomPositionShip(map.SIZE_Y, SIZE_ONE_DECK_SHIP);
+        }
+    }
+
+    public boolean returnResultCheckPositionOneShip(int i) {
+        boolean result = false;
+        if (cells[oneDeckShipY[i]][oneDeckShipX[i]] == 'X') {
+            result = true;
+        }
+        return result;
+    }
+
+    public void checkOnOthersOneDeckShip(int shipY, int shipX) {
+        while (true) {
+            if (shipY == map.SIZE_Y - 1 && shipX != map.SIZE_X - 1) {
+                if ('X' == cells[shipY][shipX - 1]) {
+                    reinstallOneDeckShip();
+                }
+                if ('X' == cells[shipY - 1][shipX]) {
+                    reinstallOneDeckShip();
+                }
+                if ('X' == cells[shipY][shipX + 1]) {
+                    reinstallOneDeckShip();
+                }
+                break;
+            } else if (shipX == map.SIZE_X - 1 && shipY != map.SIZE_Y - 1) {
+                if ('X' == cells[shipY][shipX - 1]) {
+                    reinstallOneDeckShip();
+                }
+                if ('X' == cells[shipY - 1][shipX]) {
+                    reinstallOneDeckShip();
+                }
+                if ('X' == cells[shipY + 1][shipX]) {
+                    reinstallOneDeckShip();
+                }
+                break;
+            } else if (shipX == map.SIZE_X - 1 && shipY == map.SIZE_Y - 1) {
+                if ('X' == cells[shipY][shipX - 1]) {
+                    reinstallOneDeckShip();
+                }
+                if ('X' == cells[shipY - 1][shipX]) {
+                    reinstallOneDeckShip();
+                }
+                break;
+            } else if (shipX != map.SIZE_X - 1 && shipY != map.SIZE_Y - 1) {
+                if ('X' == cells[shipY][shipX - 1]) {
+                    reinstallOneDeckShip();
+                }
+                if ('X' == cells[shipY - 1][shipX]) {
+                    reinstallOneDeckShip();
+                }
+                if ('X' == cells[shipY + 1][shipX]) {
+                    reinstallOneDeckShip();
+                }
+                if ('X' == cells[shipY][shipX + 1]) {
+                    reinstallOneDeckShip();
+                }
+                break;
+            }
+        }
+    }
+
+    public void reinstallOneDeckShip() {
+        if (removeCash < 1) {
+            map.removeOneDeckShip(oneDeckShipY, oneDeckShipX, SIZE_ONE_DECK_SHIP);
+            cycleOneDeckShip();
+        }
+        removeCash++;
+    }
 }
