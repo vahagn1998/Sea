@@ -124,33 +124,21 @@ public class TwoDeckShip extends Ship {
             if (shipY == map.SIZE_Y - 1 && shipX != map.SIZE_X - 1) {
                 if (res == 0) {
                     if (shipX == 1) {
-                        if ('X' == cells[shipY][shipX - 1]) {
-                            reinstallTwoDeckShip();
-                        }
-                        if ('X' == cells[shipY - 1][shipX]) {
+                        if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX]) {
                             reinstallTwoDeckShip();
                         }
                     } else {
-                        if ('X' == cells[shipY - 1][shipX]) {
-                            reinstallTwoDeckShip();
-                        }
-                        if ('X' == cells[shipY][shipX + 1]) {
+                        if ('X' == cells[shipY - 1][shipX] || 'X' == cells[shipY][shipX + 1]) {
                             reinstallTwoDeckShip();
                         }
                     }
                 } else {
                     if (shipY == 1) {
-                        if ('X' == cells[shipY][shipX - 1]) {
-                            reinstallTwoDeckShip();
-                        }
-                        if ('X' == cells[shipY][shipX + 1]) {
+                        if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY][shipX + 1]) {
                             reinstallTwoDeckShip();
                         }
                     } else {
-                        if ('X' == cells[shipY][shipX - 1]) {
-                            reinstallTwoDeckShip();
-                        }
-                        if ('X' == cells[shipY][shipX + 1]) {
+                        if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY][shipX + 1]) {
                             reinstallTwoDeckShip();
                         }
                     }
@@ -159,36 +147,21 @@ public class TwoDeckShip extends Ship {
             } else if (shipX == map.SIZE_X - 1 && shipY != map.SIZE_Y - 1) {
                 if (res == 0) {
                     if (shipX == 1) {
-                        if ('X' == cells[shipY][shipX - 1]) {
-                            reinstallTwoDeckShip();
-                        }
-                        if ('X' == cells[shipY - 1][shipX]) {
-                            reinstallTwoDeckShip();
-                        }
-                        if ('X' == cells[shipY + 1][shipX]) {
+                        if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX]  || 'X' == cells[shipY + 1][shipX]) {
                             reinstallTwoDeckShip();
                         }
                     } else {
-                        if ('X' == cells[shipY - 1][shipX]) {
-                            reinstallTwoDeckShip();
-                        }
-                        if ('X' == cells[shipY + 1][shipX]) {
+                        if ('X' == cells[shipY - 1][shipX] || 'X' == cells[shipY + 1][shipX]) {
                             reinstallTwoDeckShip();
                         }
                     }
                 } else {
                     if (shipY == 1) {
-                        if ('X' == cells[shipY][shipX - 1]) {
-                            reinstallTwoDeckShip();
-                        }
-                        if ('X' == cells[shipY - 1][shipX]) {
+                        if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX]) {
                             reinstallTwoDeckShip();
                         }
                     } else {
-                        if ('X' == cells[shipY][shipX - 1]) {
-                            reinstallTwoDeckShip();
-                        }
-                        if ('X' == cells[shipY + 1][shipX]) {
+                        if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY + 1][shipX]) {
                             reinstallTwoDeckShip();
                         }
                     }
@@ -197,10 +170,7 @@ public class TwoDeckShip extends Ship {
             } else if (shipX == map.SIZE_X - 1 && shipY == map.SIZE_Y - 1) {
                 if (res == 0) {
                     if (shipX == 1) {
-                        if ('X' == cells[shipY][shipX - 1]) {
-                            reinstallTwoDeckShip();
-                        }
-                        if ('X' == cells[shipY - 1][shipX]) {
+                        if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX]) {
                             reinstallTwoDeckShip();
                         }
                     } else {
@@ -210,10 +180,7 @@ public class TwoDeckShip extends Ship {
                     }
                 } else {
                     if (shipY == 1) {
-                        if ('X' == cells[shipY][shipX - 1]) {
-                            reinstallTwoDeckShip();
-                        }
-                        if ('X' == cells[shipY - 1][shipX]) {
+                        if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX]) {
                             reinstallTwoDeckShip();
                         }
                     } else {
@@ -226,45 +193,21 @@ public class TwoDeckShip extends Ship {
             } else if (shipX != map.SIZE_X - 1 && shipY != map.SIZE_Y - 1) {
                 if (res == 0) {
                     if (shipX == 1) {
-                        if ('X' == cells[shipY][shipX - 1]) {
-                            reinstallTwoDeckShip();
-                        }
-                        if ('X' == cells[shipY - 1][shipX]) {
-                            reinstallTwoDeckShip();
-                        }
-                        if ('X' == cells[shipY + 1][shipX]) {
+                        if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX] || 'X' == cells[shipY + 1][shipX]) {
                             reinstallTwoDeckShip();
                         }
                     } else {
-                        if ('X' == cells[shipY - 1][shipX]) {
-                            reinstallTwoDeckShip();
-                        }
-                        if ('X' == cells[shipY + 1][shipX]) {
-                            reinstallTwoDeckShip();
-                        }
-                        if ('X' == cells[shipY][shipX + 1]) {
+                        if ('X' == cells[shipY - 1][shipX] || 'X' == cells[shipY + 1][shipX] || 'X' == cells[shipY][shipX + 1]) {
                             reinstallTwoDeckShip();
                         }
                     }
                 } else {
                     if (shipY == 1) {
-                        if ('X' == cells[shipY][shipX - 1]) {
-                            reinstallTwoDeckShip();
-                        }
-                        if ('X' == cells[shipY - 1][shipX]) {
-                            reinstallTwoDeckShip();
-                        }
-                        if ('X' == cells[shipY][shipX + 1]) {
+                        if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX] || 'X' == cells[shipY][shipX + 1]) {
                             reinstallTwoDeckShip();
                         }
                     } else {
-                        if ('X' == cells[shipY][shipX - 1]) {
-                            reinstallTwoDeckShip();
-                        }
-                        if ('X' == cells[shipY + 1][shipX]) {
-                            reinstallTwoDeckShip();
-                        }
-                        if ('X' == cells[shipY][shipX + 1]) {
+                        if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY + 1][shipX] || 'X' == cells[shipY][shipX + 1]) {
                             reinstallTwoDeckShip();
                         }
                     }
