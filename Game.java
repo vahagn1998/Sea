@@ -3,9 +3,9 @@ package School.homework.SeaBattle;
 import java.util.Random;
 
 public class Game {
-    OneDeckShip oneDeckShip = new OneDeckShip();
-    Map map = oneDeckShip.map;
-    //TwoDeckShip twoDeckShip = new TwoDeckShip();
+    Map map = new Map();
+    OneDeckShip oneDeckShip = new OneDeckShip(map);
+    TwoDeckShip twoDeckShip = new TwoDeckShip(map);
     Player player = new Player();
 
     // Игра
@@ -17,7 +17,8 @@ public class Game {
 
     // Циклы установки кораблей
     public void cycleInstallPositionShip() {
-        //twoDeckShip.cycleTwoDeckShip();
+        twoDeckShip.setSizeTwoDeckShip();
+        twoDeckShip.cycleTwoDeckShip();
         oneDeckShip.setSizeOneDeckShip();
         oneDeckShip.cycleOneDeckShip();
     }
@@ -36,7 +37,7 @@ public class Game {
         map.sunkShip(yPosition, xPosition);
     }
 
-    // Закончена ли игра или нет?
+    // Закончена ли игра, или нет?
     public boolean isGameOver() {
         for (char[] cell : map.getCells()) {
             for (char c : cell) {

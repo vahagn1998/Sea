@@ -1,16 +1,20 @@
 package School.homework.SeaBattle;
 
 public class OneDeckShip extends Ship {
-    Map map = new Map();
+    Map map;
     public static final int SIZE_ONE_DECK_SHIP = 5;
-    int removeCash;
-    char[][] cells = map.getCells();
+    char[][] cells;
     int[] oneDeckShipX;
     int[] oneDeckShipY;
 
+    public OneDeckShip(Map map) {
+        this.map = map;
+        cells = map.getCells();
+    }
+
     public void setSizeOneDeckShip(){
-        super.setPositionShipX(SIZE_ONE_DECK_SHIP);
-        super.setPositionShipY(SIZE_ONE_DECK_SHIP);
+        super.setSizePositionShipX(SIZE_ONE_DECK_SHIP);
+        super.setSizePositionShipY(SIZE_ONE_DECK_SHIP);
         oneDeckShipX = super.getPositionShipX();
         oneDeckShipY = super.getPositionShipY();
     }
@@ -49,46 +53,22 @@ public class OneDeckShip extends Ship {
     public void checkOnOthersOneDeckShip(int shipY, int shipX) {
         while (true) {
             if (shipY == map.SIZE_Y - 1 && shipX != map.SIZE_X - 1) {
-                if ('X' == cells[shipY][shipX - 1]) {
-                    reinstallOneDeckShip();
-                }
-                if ('X' == cells[shipY - 1][shipX]) {
-                    reinstallOneDeckShip();
-                }
-                if ('X' == cells[shipY][shipX + 1]) {
+                if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX] || 'X' == cells[shipY][shipX + 1]) {
                     reinstallOneDeckShip();
                 }
                 break;
             } else if (shipX == map.SIZE_X - 1 && shipY != map.SIZE_Y - 1) {
-                if ('X' == cells[shipY][shipX - 1]) {
-                    reinstallOneDeckShip();
-                }
-                if ('X' == cells[shipY - 1][shipX]) {
-                    reinstallOneDeckShip();
-                }
-                if ('X' == cells[shipY + 1][shipX]) {
+                if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX] || 'X' == cells[shipY + 1][shipX]) {
                     reinstallOneDeckShip();
                 }
                 break;
             } else if (shipX == map.SIZE_X - 1 && shipY == map.SIZE_Y - 1) {
-                if ('X' == cells[shipY][shipX - 1]) {
-                    reinstallOneDeckShip();
-                }
-                if ('X' == cells[shipY - 1][shipX]) {
+                if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX]) {
                     reinstallOneDeckShip();
                 }
                 break;
             } else if (shipX != map.SIZE_X - 1 && shipY != map.SIZE_Y - 1) {
-                if ('X' == cells[shipY][shipX - 1]) {
-                    reinstallOneDeckShip();
-                }
-                if ('X' == cells[shipY - 1][shipX]) {
-                    reinstallOneDeckShip();
-                }
-                if ('X' == cells[shipY + 1][shipX]) {
-                    reinstallOneDeckShip();
-                }
-                if ('X' == cells[shipY][shipX + 1]) {
+                if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX] || 'X' == cells[shipY + 1][shipX] || 'X' == cells[shipY][shipX + 1]) {
                     reinstallOneDeckShip();
                 }
                 break;

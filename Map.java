@@ -4,6 +4,7 @@ package School.homework.SeaBattle;
 public class Map {
     public static final int SIZE_Y = 8;
     public static final int SIZE_X = 8;
+
     private char[][] cells = new char[SIZE_Y][SIZE_X];
     private Object[][] cellsFake = new Object[SIZE_Y][SIZE_X];
 

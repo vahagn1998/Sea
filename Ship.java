@@ -3,16 +3,9 @@ package School.homework.SeaBattle;
 import java.util.Random;
 
 abstract public class Ship {
+    int removeCash;
     private int[] positionShipX;
     private int[] positionShipY;
-
-    public void setPositionShipX(int[] positionShipX) {
-        this.positionShipX = positionShipX;
-    }
-
-    public void setPositionShipY(int[] positionShipY) {
-        this.positionShipY = positionShipY;
-    }
 
     public int[] getPositionShipX() {
         return positionShipX;
@@ -22,11 +15,11 @@ abstract public class Ship {
         return positionShipY;
     }
 
-    public void setPositionShipX(int sizeShip) {
+    public void setSizePositionShipX(int sizeShip) {
         positionShipX = new int[sizeShip];
     }
 
-    public void setPositionShipY(int sizeShip) {
+    public void setSizePositionShipY(int sizeShip) {
         positionShipY = new int[sizeShip];
     }
 
