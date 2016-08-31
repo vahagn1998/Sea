@@ -2,7 +2,7 @@ package School.homework.SeaBattle;
 
 import java.util.Random;
 
-public class Ship {
+abstract public class Ship {
     public static final int SIZE_ONE_DECK_SHIP = 5;
     public static final int SIZE_TWO_DECK_SHIP = 3;
 
