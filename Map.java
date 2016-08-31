@@ -98,7 +98,7 @@ public class Map {
 
     }
 
-    public void sunkShip(int y, int x) {
+    public void shipShot(int y, int x) {
         switch (cells[y][x]) {
             case 'X':
                 System.out.println("Вы попали по кораблю.");
