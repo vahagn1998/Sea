@@ -1,7 +1,5 @@
 package School.homework.SeaBattle;
 
-import java.util.Random;
-
 public class Game {
     Map map = new Map();
     OneDeckShip oneDeckShip = new OneDeckShip(map);
