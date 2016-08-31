@@ -42,7 +42,7 @@ public class Map {
     public void showMapFake() {
         for (int i = 0; i < SIZE_Y; i++) {
             for (int j = 0; j < SIZE_X; j++) {
-                System.out.print(cellsFake[i][j]);
+                System.out.print(cells[i][j]);
                 System.out.print(" ");
             }
             System.out.println();

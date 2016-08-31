@@ -28,42 +28,12 @@ public class Ship {
         return twoDeckShipY;
     }
 
-    public int oneDeckShipX(int sizeX) {
-        Random oneDeckRandomX = new Random();
-        int[] x = new int[SIZE_ONE_DECK_SHIP];
-        for (int i = 0; i < SIZE_ONE_DECK_SHIP; i++) {
-            x[i] = oneDeckRandomX.nextInt(sizeX - 1) + 1;
-            return x[i];
-        }
-        return 0;
-    }
-
-    public int oneDeckShipY(int sizeY) {
-        Random oneDeckRandomY = new Random();
-        int[] y = new int[SIZE_ONE_DECK_SHIP];
-        for (int i = 0; i < SIZE_ONE_DECK_SHIP; i++) {
-            y[i] = oneDeckRandomY.nextInt(sizeY - 1) + 1;
-            return y[i];
-        }
-        return 0;
-    }
-
-    public int twoDeckShipX(int sizeX) {
-        Random twoDeckRandomX = new Random();
-        int[] x = new int[2];
-        for (int i = 0; i < SIZE_TWO_DECK_SHIP; i++) {
-            x[i] = twoDeckRandomX.nextInt(sizeX - 1) + 1;
-            return x[i];
-        }
-        return 0;
-    }
-
-    public int twoDeckShipY(int sizeY) {
-        Random twoDeckRandomY = new Random();
-        int[] x = new int[SIZE_TWO_DECK_SHIP];
-        for (int i = 0; i < SIZE_TWO_DECK_SHIP; i++) {
-            x[i] = twoDeckRandomY.nextInt(sizeY - 1) + 1;
-            return x[i];
+    public int randomPositionShip(int sizeX, int sizeShip) {
+        Random randomX = new Random();
+        int[] position = new int[sizeShip];
+        for (int i = 0; i < sizeShip; i++) {
+            position[i] = randomX.nextInt(sizeX - 1) + 1;
+            return position[i];
         }
         return 0;
     }

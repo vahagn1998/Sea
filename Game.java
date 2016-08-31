@@ -48,8 +48,8 @@ public class Game {
     // Установка и проверка однопалубников
     public void cyclePositionOneShip() {
         for (int i = 0; i < ship.SIZE_ONE_DECK_SHIP; i++) {
-            oneDeckShipX[i] = ship.oneDeckShipX(map.SIZE_X);
-            oneDeckShipY[i] = ship.oneDeckShipY(map.SIZE_Y);
+            oneDeckShipX[i] = ship.randomPositionShip(map.SIZE_X, ship.SIZE_ONE_DECK_SHIP);
+            oneDeckShipY[i] = ship.randomPositionShip(map.SIZE_Y, ship.SIZE_ONE_DECK_SHIP);
             checkOneDeckShip(i);
             map.setOneDeckShip(oneDeckShipY[i], oneDeckShipX[i]);
         }
@@ -57,8 +57,8 @@ public class Game {
 
     public void checkOneDeckShip(int i) {
         while (returnResultCheckPositionOneShip(i)) {
-            oneDeckShipX[i] = ship.oneDeckShipX(map.SIZE_X);
-            oneDeckShipY[i] = ship.oneDeckShipY(map.SIZE_Y);
+            oneDeckShipX[i] = ship.randomPositionShip(map.SIZE_X, ship.SIZE_ONE_DECK_SHIP);
+            oneDeckShipY[i] = ship.randomPositionShip(map.SIZE_Y, ship.SIZE_ONE_DECK_SHIP);
         }
     }
 
@@ -133,8 +133,8 @@ public class Game {
         for (int i = 0; checkAndReturnValueCyclePositionTwoShip(); i++) {
             Random rand = new Random();
             resRandomFull[i] = rand.nextInt(2);
-            twoDeckShipX[i] = ship.twoDeckShipX(map.SIZE_X);
-            twoDeckShipY[i] = ship.twoDeckShipY(map.SIZE_Y);
+            twoDeckShipX[i] = ship.randomPositionShip(map.SIZE_X, ship.SIZE_TWO_DECK_SHIP);
+            twoDeckShipY[i] = ship.randomPositionShip(map.SIZE_Y, ship.SIZE_TWO_DECK_SHIP);
             checkTwoDeckShip(i);
             checkOnSecondDeckForTwoDeckShip(twoDeckShipY[i], twoDeckShipX[i], i);
             map.setTwoDeckShip(twoDeckShipY[i], twoDeckShipX[i], resRandomFull[i]);
@@ -143,8 +143,8 @@ public class Game {
 
     public void checkTwoDeckShip(int i) {
         while (returnResultCheckPositionTwoShip(i)) {
-            twoDeckShipX[i] = ship.twoDeckShipX(map.SIZE_X);
-            twoDeckShipY[i] = ship.twoDeckShipY(map.SIZE_Y);
+            twoDeckShipX[i] = ship.randomPositionShip(map.SIZE_X, ship.SIZE_TWO_DECK_SHIP);
+            twoDeckShipY[i] = ship.randomPositionShip(map.SIZE_Y, ship.SIZE_TWO_DECK_SHIP);
         }
     }
 
