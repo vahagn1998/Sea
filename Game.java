@@ -27,7 +27,7 @@ public class Game {
         map.fieldFake();
         map.showMapFake();
     }
-bvcb
+
     // Удар по выбранной позиции игроком
     public void playerPosition() {
         int yPosition = player.yPosition(map.SIZE_Y);
