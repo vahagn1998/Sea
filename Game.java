@@ -4,19 +4,20 @@ import java.util.Random;
 
 public class Game {
     Map map = new Map();
-    Ship ship = new Ship();
+    OneDeckShip oneDeckShip = new OneDeckShip();
+    TwoDeckShip twoDeckShip = new TwoDeckShip();
     Player player = new Player();
     int removeCash;
     char[][] cells = map.getCells();
 
     //Однопалубный массив
-    int[] oneDeckShipX = ship.getOneDeckShipX();
-    int[] oneDeckShipY = ship.getOneDeckShipY();
+    int[] oneDeckShipX = oneDeckShip.getOneDeckShipX();
+    int[] oneDeckShipY = oneDeckShip.getOneDeckShipY();
 
     //Двухпалубный массив
-    int[] twoDeckShipX = ship.getTwoDeckShipX();
-    int[] twoDeckShipY = ship.getTwoDeckShipY();
-    int[] resRandomFull = new int[ship.SIZE_TWO_DECK_SHIP];
+    int[] twoDeckShipX = twoDeckShip.getTwoDeckShipX();
+    int[] twoDeckShipY = twoDeckShip.getTwoDeckShipY();
+    int[] resRandomFull = new int[twoDeckShip.SIZE_TWO_DECK_SHIP];
 
     // Игра
     public void game() {
@@ -27,29 +28,29 @@ public class Game {
 
     // Циклы установки кораблей
     public void cycleInstallPositionShip() {
-        cycleTwoDeckShip();
+        //cycleTwoDeckShip();
         cycleOneDeckShip();
     }
 
     public void cycleOneDeckShip() {
         cyclePositionOneShip();
-        for (int i = 0; i < ship.SIZE_ONE_DECK_SHIP; i++) {
+        for (int i = 0; i < oneDeckShip.SIZE_ONE_DECK_SHIP; i++) {
             checkOnOthersOneDeckShip(oneDeckShipY[i], oneDeckShipX[i]);
         }
     }
 
     public void cycleTwoDeckShip() {
         cyclePositionTwoShip();
-        for (int i = 0; i < ship.SIZE_TWO_DECK_SHIP; i++) {
+        for (int i = 0; i < twoDeckShip.SIZE_TWO_DECK_SHIP; i++) {
             checkOnOthersTwoDeckShip(twoDeckShipY[i], twoDeckShipX[i], resRandomFull[i]);
         }
     }
 
     // Установка и проверка однопалубников
     public void cyclePositionOneShip() {
-        for (int i = 0; i < ship.SIZE_ONE_DECK_SHIP; i++) {
-            oneDeckShipX[i] = ship.randomPositionShip(map.SIZE_X, ship.SIZE_ONE_DECK_SHIP);
-            oneDeckShipY[i] = ship.randomPositionShip(map.SIZE_Y, ship.SIZE_ONE_DECK_SHIP);
+        for (int i = 0; i < oneDeckShip.SIZE_ONE_DECK_SHIP; i++) {
+            oneDeckShipX[i] = oneDeckShip.randomPositionShip(map.SIZE_X, oneDeckShip.SIZE_ONE_DECK_SHIP);
+            oneDeckShipY[i] = oneDeckShip.randomPositionShip(map.SIZE_Y, oneDeckShip.SIZE_ONE_DECK_SHIP);
             checkOneDeckShip(i);
             map.setOneDeckShip(oneDeckShipY[i], oneDeckShipX[i]);
         }
@@ -57,8 +58,8 @@ public class Game {
 
     public void checkOneDeckShip(int i) {
         while (returnResultCheckPositionOneShip(i)) {
-            oneDeckShipX[i] = ship.randomPositionShip(map.SIZE_X, ship.SIZE_ONE_DECK_SHIP);
-            oneDeckShipY[i] = ship.randomPositionShip(map.SIZE_Y, ship.SIZE_ONE_DECK_SHIP);
+            oneDeckShipX[i] = oneDeckShip.randomPositionShip(map.SIZE_X, oneDeckShip.SIZE_ONE_DECK_SHIP);
+            oneDeckShipY[i] = oneDeckShip.randomPositionShip(map.SIZE_Y, oneDeckShip.SIZE_ONE_DECK_SHIP);
         }
     }
 
@@ -122,7 +123,7 @@ public class Game {
 
     public void reinstallOneDeckShip() {
         if (removeCash < 1) {
-            map.removeOneDeckShip(oneDeckShipY, oneDeckShipX, ship.SIZE_ONE_DECK_SHIP);
+            map.removeOneDeckShip(oneDeckShipY, oneDeckShipX, oneDeckShip.SIZE_ONE_DECK_SHIP);
             cycleOneDeckShip();
         }
         removeCash++;
@@ -130,11 +131,11 @@ public class Game {
 
     // Установка и проверка двухпалубников
     public void cyclePositionTwoShip() {
-        for (int i = 0; checkAndReturnValueCyclePositionTwoShip(); i++) {
+        for (int i = 0; checkAndReturnValueCyclePositionTwoDeckShip(); i++) {
             Random rand = new Random();
             resRandomFull[i] = rand.nextInt(2);
-            twoDeckShipX[i] = ship.randomPositionShip(map.SIZE_X, ship.SIZE_TWO_DECK_SHIP);
-            twoDeckShipY[i] = ship.randomPositionShip(map.SIZE_Y, ship.SIZE_TWO_DECK_SHIP);
+            twoDeckShipX[i] = twoDeckShip.randomPositionShip(map.SIZE_X, twoDeckShip.SIZE_TWO_DECK_SHIP);
+            twoDeckShipY[i] = twoDeckShip.randomPositionShip(map.SIZE_Y, twoDeckShip.SIZE_TWO_DECK_SHIP);
             checkTwoDeckShip(i);
             checkOnSecondDeckForTwoDeckShip(twoDeckShipY[i], twoDeckShipX[i], i);
             map.setTwoDeckShip(twoDeckShipY[i], twoDeckShipX[i], resRandomFull[i]);
@@ -143,8 +144,8 @@ public class Game {
 
     public void checkTwoDeckShip(int i) {
         while (returnResultCheckPositionTwoShip(i)) {
-            twoDeckShipX[i] = ship.randomPositionShip(map.SIZE_X, ship.SIZE_TWO_DECK_SHIP);
-            twoDeckShipY[i] = ship.randomPositionShip(map.SIZE_Y, ship.SIZE_TWO_DECK_SHIP);
+            twoDeckShipX[i] = twoDeckShip.randomPositionShip(map.SIZE_X, twoDeckShip.SIZE_TWO_DECK_SHIP);
+            twoDeckShipY[i] = twoDeckShip.randomPositionShip(map.SIZE_Y, twoDeckShip.SIZE_TWO_DECK_SHIP);
         }
     }
 
@@ -201,14 +202,14 @@ public class Game {
         }
     }
 
-    public boolean checkAndReturnValueCyclePositionTwoShip() {
+    public boolean checkAndReturnValueCyclePositionTwoDeckShip() {
         int counter = 1;
         boolean checkStrength = true;
         for (char[] cell : cells) {
             for (char c : cell) {
-                if (counter <= ship.SIZE_TWO_DECK_SHIP * 2 /*+ ship.SIZE_ONE_DECK_SHIP*/) {
+                if (counter <= twoDeckShip.SIZE_TWO_DECK_SHIP * 2 /*+ ship.SIZE_ONE_DECK_SHIP*/) {
                     if (c == 'X') {
-                        if (counter == ship.SIZE_TWO_DECK_SHIP * 2 /*+ ship.SIZE_ONE_DECK_SHIP*/) {
+                        if (counter == twoDeckShip.SIZE_TWO_DECK_SHIP * 2 /*+ ship.SIZE_ONE_DECK_SHIP*/) {
                             checkStrength = false;
                         }
                         counter++;
@@ -376,7 +377,7 @@ public class Game {
 
     public void reinstallTwoDeckShip() {
         if (removeCash < 1) {
-            map.removeTwoDeckShip(twoDeckShipY, twoDeckShipX, ship.SIZE_TWO_DECK_SHIP, resRandomFull);
+            map.removeTwoDeckShip(twoDeckShipY, twoDeckShipX, twoDeckShip.SIZE_TWO_DECK_SHIP, resRandomFull);
             cycleTwoDeckShip();
         }
         removeCash++;
