@@ -3,29 +3,31 @@ package School.homework.SeaBattle;
 import java.util.Random;
 
 abstract public class Ship {
-    public static final int SIZE_ONE_DECK_SHIP = 5;
-    public static final int SIZE_TWO_DECK_SHIP = 3;
+    private int[] positionShipX;
+    private int[] positionShipY;
 
-    private int[] oneDeckShipX = new int[SIZE_ONE_DECK_SHIP];
-    private int[] oneDeckShipY = new int[SIZE_ONE_DECK_SHIP];
-
-    private int[] twoDeckShipX = new int[SIZE_TWO_DECK_SHIP];
-    private int[] twoDeckShipY = new int[SIZE_TWO_DECK_SHIP];
-
-    public int[] getOneDeckShipX() {
-        return oneDeckShipX;
+    public void setPositionShipX(int[] positionShipX) {
+        this.positionShipX = positionShipX;
     }
 
-    public int[] getOneDeckShipY() {
-        return oneDeckShipY;
+    public void setPositionShipY(int[] positionShipY) {
+        this.positionShipY = positionShipY;
     }
 
-    public int[] getTwoDeckShipX() {
-        return twoDeckShipX;
+    public int[] getPositionShipX() {
+        return positionShipX;
     }
 
-    public int[] getTwoDeckShipY() {
-        return twoDeckShipY;
+    public int[] getPositionShipY() {
+        return positionShipY;
+    }
+
+    public void setPositionShipX(int sizeShip) {
+        positionShipX = new int[sizeShip];
+    }
+
+    public void setPositionShipY(int sizeShip) {
+        positionShipY = new int[sizeShip];
     }
 
     public int randomPositionShip(int sizeX, int sizeShip) {
