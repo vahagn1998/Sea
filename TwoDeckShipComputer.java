@@ -2,26 +2,26 @@ package School.homework.SeaBattle;
 
 import java.util.Random;
 
-public class TwoDeckShip extends Ship {
+public class TwoDeckShipComputer extends ShipComputer {
     MapComputer mapComputer;
-    public static final int SIZE_TWO_DECK_SHIP = 3;
+    public static final int SIZE_TWO_DECK_SHIP_COMPUTER = 3;
     char[][] cells;
     int[] twoDeckShipX;
     int[] twoDeckShipY;
-    int[] resRandomFull = new int[SIZE_TWO_DECK_SHIP];
+    int[] resRandomFull = new int[SIZE_TWO_DECK_SHIP_COMPUTER];
 
-    public TwoDeckShip(MapComputer mapComputer) {
+    public TwoDeckShipComputer(MapComputer mapComputer) {
         this.mapComputer = mapComputer;
         cells = mapComputer.getCells();
-        super.setSizePositionShipX(SIZE_TWO_DECK_SHIP);
-        super.setSizePositionShipY(SIZE_TWO_DECK_SHIP);
+        super.setSizePositionShipX(SIZE_TWO_DECK_SHIP_COMPUTER);
+        super.setSizePositionShipY(SIZE_TWO_DECK_SHIP_COMPUTER);
         twoDeckShipX = super.getPositionShipX();
         twoDeckShipY = super.getPositionShipY();
     }
 
-    public void cycleTwoDeckShip() {
+    public void setTwoDeckShip() {
         cyclePositionTwoShip();
-        for (int i = 0; i < SIZE_TWO_DECK_SHIP; i++) {
+        for (int i = 0; i < SIZE_TWO_DECK_SHIP_COMPUTER; i++) {
             checkOnOthersTwoDeckShip(twoDeckShipY[i], twoDeckShipX[i], resRandomFull[i]);
         }
     }
@@ -30,8 +30,8 @@ public class TwoDeckShip extends Ship {
         for (int i = 0; checkAndReturnValueCyclePositionTwoDeckShip(); i++) {
             Random rand = new Random();
             resRandomFull[i] = rand.nextInt(2);
-            twoDeckShipX[i] = randomPositionShip(mapComputer.SIZE_X, SIZE_TWO_DECK_SHIP);
-            twoDeckShipY[i] = randomPositionShip(mapComputer.SIZE_Y, SIZE_TWO_DECK_SHIP);
+            twoDeckShipX[i] = randomPositionShip(mapComputer.SIZE_X, SIZE_TWO_DECK_SHIP_COMPUTER);
+            twoDeckShipY[i] = randomPositionShip(mapComputer.SIZE_Y, SIZE_TWO_DECK_SHIP_COMPUTER);
             checkTwoDeckShip(i);
             checkOnSecondDeckForTwoDeckShip(twoDeckShipY[i], twoDeckShipX[i], i);
             mapComputer.setTwoDeckShip(twoDeckShipY[i], twoDeckShipX[i], resRandomFull[i]);
@@ -40,8 +40,8 @@ public class TwoDeckShip extends Ship {
 
     public void checkTwoDeckShip(int i) {
         while (returnResultCheckPositionTwoShip(i)) {
-            twoDeckShipX[i] = randomPositionShip(mapComputer.SIZE_X, SIZE_TWO_DECK_SHIP);
-            twoDeckShipY[i] = randomPositionShip(mapComputer.SIZE_Y, SIZE_TWO_DECK_SHIP);
+            twoDeckShipX[i] = randomPositionShip(mapComputer.SIZE_X, SIZE_TWO_DECK_SHIP_COMPUTER);
+            twoDeckShipY[i] = randomPositionShip(mapComputer.SIZE_Y, SIZE_TWO_DECK_SHIP_COMPUTER);
         }
     }
 
@@ -103,9 +103,9 @@ public class TwoDeckShip extends Ship {
         boolean checkStrength = true;
         for (char[] cell : cells) {
             for (char c : cell) {
-                if (counter <= SIZE_TWO_DECK_SHIP * 2) {
+                if (counter <= SIZE_TWO_DECK_SHIP_COMPUTER * 2) {
                     if (c == 'X') {
-                        if (counter == SIZE_TWO_DECK_SHIP * 2) {
+                        if (counter == SIZE_TWO_DECK_SHIP_COMPUTER * 2) {
                             checkStrength = false;
                         }
                         counter++;
@@ -216,8 +216,8 @@ public class TwoDeckShip extends Ship {
 
     public void reinstallTwoDeckShip() {
         if (removeCash < 1) {
-            mapComputer.removeTwoDeckShip(twoDeckShipY, twoDeckShipX, SIZE_TWO_DECK_SHIP, resRandomFull);
-            cycleTwoDeckShip();
+            mapComputer.removeTwoDeckShip(twoDeckShipY, twoDeckShipX, SIZE_TWO_DECK_SHIP_COMPUTER, resRandomFull);
+            setTwoDeckShip();
         }
         removeCash++;
     }

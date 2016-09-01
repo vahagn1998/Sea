@@ -3,33 +3,12 @@ package School.homework.SeaBattle;
 
 public class MapComputer extends Map {
     char[][] cells = getCells();
-
-    public void setOneDeckShip(int y, int x) {
-        cells[y][x] = 'X';
-    }
+    Object[][] cellsFake = getCellsFake();
 
     public void removeOneDeckShip(int[] y, int[] x, int size) {
         for (int j = 0; j < size; j++) {
             cells[y[j]][x[j]] = 'o';
         }
-    }
-
-    public int setTwoDeckShip(int y, int x, int r) {
-        cells[y][x] = 'X';
-        if (r == 0) {
-            if (x == 1) {
-                cells[y][x + 1] = 'X';
-            } else {
-                cells[y][x - 1] = 'X';
-            }
-        } else {
-            if (y == 1) {
-                cells[y + 1][x] = 'X';
-            } else {
-                cells[y - 1][x] = 'X';
-            }
-        }
-        return r;
     }
 
     public void removeTwoDeckShip(int[] y, int[] x, int size, int[] res) {
@@ -49,6 +28,25 @@ public class MapComputer extends Map {
                 }
             }
         }
+    }
 
+    public void fieldFake() {
+        for (int i = 1; i < SIZE_Y; i++) {
+            for (int j = 1; j < SIZE_X; j++) {
+                cellsFake[i][j] = ('o');
+            }
+        }
+
+        for (int i = 0; i < SIZE_X; i++) {
+            if (i == 0) {
+                cellsFake[0][i] = ("  ");
+            } else {
+                cellsFake[0][i] = (i);
+            }
+        }
+
+        for (int i = 1; i < SIZE_Y; i++) {
+            cellsFake[i][0] = (i + " ");
+        }
     }
 }

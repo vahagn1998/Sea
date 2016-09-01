@@ -2,7 +2,7 @@ package School.homework.SeaBattle;
 
 import java.util.Random;
 
-abstract public class Ship {
+abstract public class ShipComputer {
     int removeCash;
     private int[] positionShipX;
     private int[] positionShipY;
