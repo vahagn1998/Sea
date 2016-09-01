@@ -15,9 +15,7 @@ public class Game {
 
     // Циклы установки кораблей
     public void cycleInstallPositionShip() {
-        twoDeckShip.setSizeTwoDeckShip();
         twoDeckShip.cycleTwoDeckShip();
-        oneDeckShip.setSizeOneDeckShip();
         oneDeckShip.cycleOneDeckShip();
     }
 

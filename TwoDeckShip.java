@@ -13,9 +13,6 @@ public class TwoDeckShip extends Ship {
     public TwoDeckShip(Map map) {
         this.map = map;
         cells = map.getCells();
-    }
-
-    public void setSizeTwoDeckShip(){
         super.setSizePositionShipX(SIZE_TWO_DECK_SHIP);
         super.setSizePositionShipY(SIZE_TWO_DECK_SHIP);
         twoDeckShipX = super.getPositionShipX();
