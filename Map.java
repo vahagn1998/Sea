@@ -1,7 +1,9 @@
 package School.homework.SeaBattle;
 
-
-public class Map {
+/**
+ * Created by Администратор on 01.09.2016.
+ */
+abstract public class Map {
     public static final int SIZE_Y = 8;
     public static final int SIZE_X = 8;
 
@@ -50,60 +52,13 @@ public class Map {
         }
     }
 
-    public void setOneDeckShip(int y, int x) {
-        cells[y][x] = 'X';
-    }
-
-    public void removeOneDeckShip(int[] y, int[] x, int size) {
-        for (int j = 0; j < size; j++) {
-            cells[y[j]][x[j]] = 'o';
-        }
-    }
-
-    public int setTwoDeckShip(int y, int x, int r) {
-        cells[y][x] = 'X';
-        if (r == 0) {
-            if (x == 1) {
-                cells[y][x + 1] = 'X';
-            } else {
-                cells[y][x - 1] = 'X';
-            }
-        } else {
-            if (y == 1) {
-                cells[y + 1][x] = 'X';
-            } else {
-                cells[y - 1][x] = 'X';
-            }
-        }
-        return r;
-    }
-
-    public void removeTwoDeckShip(int[] y, int[] x, int size, int[] res) {
-        for (int j = 0; j < size; j++) {
-            cells[y[j]][x[j]] = 'o';
-            if (res[j] == 0) {
-                if (x[j] == 1) {
-                    cells[y[j]][x[j] + 1] = 'o';
-                } else {
-                    cells[y[j]][x[j] - 1] = 'o';
-                }
-            } else {
-                if (y[j] == 1) {
-                    cells[y[j] + 1][x[j]] = 'o';
-                } else {
-                    cells[y[j] - 1][x[j]] = 'o';
-                }
-            }
-        }
-
-    }
-
     public void shipShot(int y, int x) {
         if (cells[y][x] == '-' || cells[y][x] == '*') {
             System.out.println("Вы уже стреляли по этой позиции, попробуйте ещё раз.");
         }
         if (cells[y][x] == 'o') {
             cells[y][x] = '*';
+            cellsFake[y][x] = '*';
             System.out.println("Вы промахнулись.");
         }
         if (cells[y][x] == 'X') {

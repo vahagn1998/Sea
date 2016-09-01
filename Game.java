@@ -1,9 +1,9 @@
 package School.homework.SeaBattle;
 
 public class Game {
-    Map map = new Map();
-    OneDeckShip oneDeckShip = new OneDeckShip(map);
-    TwoDeckShip twoDeckShip = new TwoDeckShip(map);
+    MapComputer mapComputer = new MapComputer();
+    OneDeckShip oneDeckShip = new OneDeckShip(mapComputer);
+    TwoDeckShip twoDeckShip = new TwoDeckShip(mapComputer);
     Player player = new Player();
 
     // Игра
@@ -21,21 +21,21 @@ public class Game {
 
     // Установка и показ поля
     public void fillingField() {
-        map.field();
-        map.fieldFake();
-        map.showMapFake();
+        mapComputer.field();
+        mapComputer.fieldFake();
+        mapComputer.showMapFake();
     }
 
     // Удар по выбранной позиции игроком
     public void playerPosition() {
-        int yPosition = player.yPosition(map.SIZE_Y);
-        int xPosition = player.xPosition(map.SIZE_X);
-        map.shipShot(yPosition, xPosition);
+        int yPosition = player.yPosition(mapComputer.SIZE_Y);
+        int xPosition = player.xPosition(mapComputer.SIZE_X);
+        mapComputer.shipShot(yPosition, xPosition);
     }
 
     // Закончена ли игра, или нет?
     public boolean isGameOver() {
-        for (char[] cell : map.getCells()) {
+        for (char[] cell : mapComputer.getCells()) {
             for (char c : cell) {
                 if (c == 'X') {
                     return false;
@@ -49,7 +49,7 @@ public class Game {
     public void cycleGame() {
         do {
             playerPosition();
-            map.showMapFake();
+            mapComputer.showMapFake();
         } while (!(isGameOver()));
         System.out.println("Вы потопили все корабли. Поздравляем.");
     }
