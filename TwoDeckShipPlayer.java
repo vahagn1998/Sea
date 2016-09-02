@@ -1,9 +1,7 @@
 package School.homework.SeaBattle;
 
-/**
- * Created by Администратор on 01.09.2016.
- */
 public class TwoDeckShipPlayer extends ShipPlayer {
+    public static final int SIZE_TWO_DECK_SHIP_PLAYER = 3;
     MapPlayer mapPlayer;
     Player player;
 

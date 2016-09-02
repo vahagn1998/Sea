@@ -1,8 +1,5 @@
 package School.homework.SeaBattle;
 
-/**
- * Created by Администратор on 01.09.2016.
- */
 abstract public class Map {
     public static final int SIZE_Y = 8;
     public static final int SIZE_X = 8;
@@ -59,16 +56,26 @@ abstract public class Map {
             }
             System.out.println();
         }
-        System.out.println();
     }
-
-    public void shipShot(int y, int x) {
+    // Нужно сделать чтобы метод выводил разные сообщения, для компьютера и игрока.
+    public void shipShot(int y, int x, int variant, Computer computer, Player player) {
         if (cells[y][x] == '-' || cells[y][x] == '*') {
-            System.out.println("Вы уже стреляли по этой позиции, попробуйте ещё раз.");
+            if (variant == 1){
+                System.out.println("Вы уже стреляли по этой позиции, попробуйте ещё раз.");
+                int yPositionPlayer = player.yPositionPlayer(SIZE_Y);
+                int xPositionPlayer = player.xPositionPlayer(SIZE_X);
+                shipShot(yPositionPlayer, xPositionPlayer, variant, computer, player);
+            }
+            if (variant == 2){
+                int yPositionComputer = computer.yPositionComputer(SIZE_Y);
+                int xPositionComputer = computer.xPositionComputer(SIZE_X);
+                shipShot(yPositionComputer, xPositionComputer, variant, computer, player);
+            }
         }
         if (cells[y][x] == 'o') {
             cells[y][x] = '*';
             cellsFake[y][x] = '*';
+            System.out.println();
             System.out.println("Промахнулся.");
         }
         if (cells[y][x] == 'X') {

@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Player {
     public int xPositionPlayer(int sizeX) {
         System.out.println();
-        System.out.println("Введите координату X");
+        System.out.println("Введите координату X, для стрельбы по позиции.");
         Scanner scannerX = new Scanner(System.in);
         String xS = scannerX.nextLine();
         while (xS.trim().length() == 0 || Integer.parseInt(xS) < 1 || Integer.parseInt(xS) >= sizeX) {
@@ -21,7 +21,7 @@ public class Player {
 
     public int yPositionPlayer(int sizeY) {
         System.out.println();
-        System.out.println("Введите координату Y");
+        System.out.println("Введите координату Y, для стрельбы по позиции.");
         Scanner scannerY = new Scanner(System.in);
         String yS = scannerY.nextLine();
         while (yS.trim().length() == 0 || Integer.parseInt(yS) < 1 || Integer.parseInt(yS) >= sizeY) {

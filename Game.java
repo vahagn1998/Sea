@@ -9,6 +9,7 @@ public class Game {
     TwoDeckShipComputer twoDeckShipComputer = new TwoDeckShipComputer(mapComputer);
     OneDeckShipPlayer oneDeckShipPlayer = new OneDeckShipPlayer(mapPlayer, player);
     TwoDeckShipPlayer twoDeckShipPlayer = new TwoDeckShipPlayer(mapPlayer, player);
+    int variant;
 
     // Игра
     public void game() {
@@ -41,16 +42,18 @@ public class Game {
 
     // Удар по позициям компьютера
     public void playerPositionShot() {
+        variant = 1;
         int yPositionPlayer = player.yPositionPlayer(mapComputer.SIZE_Y);
         int xPositionPlayer = player.xPositionPlayer(mapComputer.SIZE_X);
-        mapComputer.shipShot(yPositionPlayer, xPositionPlayer);
+        mapComputer.shipShot(yPositionPlayer, xPositionPlayer, variant, computer, player);
     }
 
     //Удар по позициям игрока
     public void computerPositionShot(){
+        variant = 2;
         int yPositionComputer = computer.yPositionComputer(mapPlayer.SIZE_Y);
         int xPositionComputer = computer.xPositionComputer(mapPlayer.SIZE_X);
-        mapPlayer.shipShot(yPositionComputer, xPositionComputer);
+        mapPlayer.shipShot(yPositionComputer, xPositionComputer, variant, computer, player);
     }
 
     // Закончена ли игра, или нет?
