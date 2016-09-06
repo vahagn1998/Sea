@@ -1,4 +1,4 @@
-package School.homework.SeaBattle;
+package School.homework.SeaBattle.Model;
 
 abstract public class Map {
     public static final int SIZE_Y = 8;
@@ -62,13 +62,13 @@ abstract public class Map {
         if (cells[y][x] == '-' || cells[y][x] == '*') {
             if (variant == 1){
                 System.out.println("Вы уже стреляли по этой позиции, попробуйте ещё раз.");
-                int yPositionPlayer = player.yPositionPlayer(SIZE_Y);
-                int xPositionPlayer = player.xPositionPlayer(SIZE_X);
+                int yPositionPlayer = player.yPosition(SIZE_Y);
+                int xPositionPlayer = player.xPosition(SIZE_X);
                 shipShot(yPositionPlayer, xPositionPlayer, variant, computer, player);
             }
             if (variant == 2){
-                int yPositionComputer = computer.yPositionComputer(SIZE_Y);
-                int xPositionComputer = computer.xPositionComputer(SIZE_X);
+                int yPositionComputer = computer.yPosition(SIZE_Y);
+                int xPositionComputer = computer.xPosition(SIZE_X);
                 shipShot(yPositionComputer, xPositionComputer, variant, computer, player);
             }
         }

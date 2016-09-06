@@ -1,9 +1,10 @@
-package School.homework.SeaBattle;
+package School.homework.SeaBattle.Model;
 
 import java.util.Scanner;
 
-public class Player {
-    public int xPositionPlayer(int sizeX) {
+public class Player implements IShootCoordinates {
+    @Override
+    public int xPosition(int sizeX) {
         System.out.println();
         System.out.println("Введите координату X, для стрельбы по позиции.");
         Scanner scannerX = new Scanner(System.in);
@@ -19,7 +20,8 @@ public class Player {
         return x;
     }
 
-    public int yPositionPlayer(int sizeY) {
+    @Override
+    public int yPosition(int sizeY) {
         System.out.println();
         System.out.println("Введите координату Y, для стрельбы по позиции.");
         Scanner scannerY = new Scanner(System.in);

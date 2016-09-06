@@ -1,4 +1,4 @@
-package School.homework.SeaBattle;
+package School.homework.SeaBattle.Model;
 
 public class OneDeckShipPlayer extends ShipPlayer {
     public static final int SIZE_ONE_DECK_SHIP_PLAYER = 5;

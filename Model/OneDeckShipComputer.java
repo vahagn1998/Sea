@@ -1,4 +1,4 @@
-package School.homework.SeaBattle;
+package School.homework.SeaBattle.Model;
 
 public class OneDeckShipComputer extends ShipComputer {
     MapComputer mapComputer;
