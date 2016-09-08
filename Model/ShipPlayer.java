@@ -6,16 +6,18 @@ abstract public class ShipPlayer implements IShipPlayer {
     private int[] positionYTwoDeckShip;
     private int[] positionXTwoDeckShip;
     private int[] secondPositionTwoDeckShip;
+    int chooseX;
+    int chooseY;
+    int[] y;
+    int[] x;
 
-    public int[] getPositionXTwoDeckShip() {
-        return positionXTwoDeckShip;
-    }
-
-    public void setPositionXTwoDeckShip(int positionXTwoDeckShip, int i) {
+    public void setPositionXTwoDeckShip(int positionXTwoDeckShip, int i, int sizeShip) {
+        this.positionXTwoDeckShip = new int[sizeShip];
         this.positionXTwoDeckShip[i] = positionXTwoDeckShip;
     }
 
-    public void setPositionYTwoDeckShip(int positionYTwoDeckShip, int i) {
+    public void setPositionYTwoDeckShip(int positionYTwoDeckShip, int i, int sizeShip) {
+        this.positionYTwoDeckShip = new int[sizeShip];
         this.positionYTwoDeckShip[i] = positionYTwoDeckShip;
     }
 
@@ -25,6 +27,10 @@ abstract public class ShipPlayer implements IShipPlayer {
 
     public int[] getSecondPositionTwoDeckShip() {
         return secondPositionTwoDeckShip;
+    }
+
+    public int[] getPositionXTwoDeckShip() {
+        return positionXTwoDeckShip;
     }
 
     public int[] getPositionYTwoDeckShip() {

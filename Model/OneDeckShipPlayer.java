@@ -5,10 +5,6 @@ public class OneDeckShipPlayer extends ShipPlayer {
     MapPlayer mapPlayer;
     Player player;
     char[][] cells;
-    int chooseX;
-    int chooseY;
-    int[] y;
-    int[] x;
 
     public OneDeckShipPlayer(MapPlayer mapPlayer, Player player) {
         this.mapPlayer = mapPlayer;
@@ -18,7 +14,7 @@ public class OneDeckShipPlayer extends ShipPlayer {
     @Override
     public void setShip() {
         System.out.println();
-        System.out.println("Здравствуйте, перед тем как начать, вы должны установить " + SIZE_ONE_DECK_SHIP_PLAYER + " однопалубных кораблей.");
+        System.out.println("И ещё, вы должны установить " + SIZE_ONE_DECK_SHIP_PLAYER + " однопалубных кораблей.");
         for (int i = 0; i < SIZE_ONE_DECK_SHIP_PLAYER; i++) {
             chooseY = player.chooseYPosition(mapPlayer.SIZE_Y);
             chooseX = player.chooseXPosition(mapPlayer.SIZE_X);
