@@ -9,4 +9,14 @@ public class TwoDeckShipPlayer extends ShipPlayer {
         this.mapPlayer = mapPlayer;
         this.player = player;
     }
+
+    @Override
+    public void setShip() {
+
+    }
+
+    @Override
+    public void checkShip(int yPosition, int xPosition, int i) {
+
+    }
 }

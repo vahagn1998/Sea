@@ -57,7 +57,8 @@ abstract public class Map {
             System.out.println();
         }
     }
-    // Нужно сделать чтобы метод выводил разные сообщения, для компьютера и игрока.
+
+    // 1 == Игрок. 2 == Компьютер.
     public void shipShot(int y, int x, int variant, Computer computer, Player player) {
         if (cells[y][x] == '-' || cells[y][x] == '*') {
             if (variant == 1){
@@ -75,52 +76,114 @@ abstract public class Map {
         if (cells[y][x] == 'o') {
             cells[y][x] = '*';
             cellsFake[y][x] = '*';
-            System.out.println();
-            System.out.println("Промахнулся.");
+            if(variant == 1){
+                System.out.println();
+                System.out.println("Вы промахнулись.");
+            }
+            if(variant == 2){
+                System.out.println();
+                System.out.println("Компьютер промахнулся.");
+            }
         }
         if (cells[y][x] == 'X') {
             if (y != SIZE_Y - 1 && x != SIZE_X - 1) {
                 if (cells[y - 1][x] != 'X' && cells[y + 1][x] != 'X' && cells[y][x - 1] != 'X' && cells[y][x + 1] != 'X') {
                     cells[y][x] = '-';
                     cellsFake[y][x] = '-';
-                    System.out.println("Вы потопили корабль.");
+                    if(variant == 1){
+                        System.out.println();
+                        System.out.println("Вы потопили корабль.");
+                    }
+                    if(variant == 2){
+                        System.out.println();
+                        System.out.println("Компьютер потопил ваш корабль.");
+                    }
                 } else {
                     cells[y][x] = '-';
                     cellsFake[y][x] = '-';
-                    System.out.println("Вы ранили корабль.");
+                    if(variant == 1){
+                        System.out.println();
+                        System.out.println("Вы ранили корабль.");
+                    }
+                    if(variant == 2){
+                        System.out.println();
+                        System.out.println("Компьютер ранил ваш корабль.");
+                    }
                 }
             }
             if (y != SIZE_Y - 1 && x == SIZE_X - 1) {
                 if (cells[y - 1][x] != 'X' && cells[y + 1][x] != 'X' && cells[y][x - 1] != 'X') {
                     cells[y][x] = '-';
                     cellsFake[y][x] = '-';
-                    System.out.println("Вы потопили корабль.");
+                    if(variant == 1){
+                        System.out.println();
+                        System.out.println("Вы потопили корабль.");
+                    }
+                    if(variant == 2){
+                        System.out.println();
+                        System.out.println("Компьютер потопил ваш корабль.");
+                    }
                 } else {
                     cells[y][x] = '-';
                     cellsFake[y][x] = '-';
-                    System.out.println("Вы ранили корабль.");
+                    if(variant == 1){
+                        System.out.println();
+                        System.out.println("Вы ранили корабль.");
+                    }
+                    if(variant == 2){
+                        System.out.println();
+                        System.out.println("Компьютер ранил ваш корабль.");
+                    }
                 }
             }
             if (y == SIZE_Y - 1 && x != SIZE_X - 1) {
                 if (cells[y - 1][x] != 'X' && cells[y][x - 1] != 'X' && cells[y][x + 1] != 'X') {
                     cells[y][x] = '-';
                     cellsFake[y][x] = '-';
-                    System.out.println("Вы потопили корабль.");
+                    if(variant == 1){
+                        System.out.println();
+                        System.out.println("Вы потопили корабль.");
+                    }
+                    if(variant == 2){
+                        System.out.println();
+                        System.out.println("Компьютер потопил ваш корабль.");
+                    }
                 } else {
                     cells[y][x] = '-';
                     cellsFake[y][x] = '-';
-                    System.out.println("Вы ранили корабль.");
+                    if(variant == 1){
+                        System.out.println();
+                        System.out.println("Вы ранили корабль.");
+                    }
+                    if(variant == 2){
+                        System.out.println();
+                        System.out.println("Компьютер ранил ваш корабль.");
+                    }
                 }
             }
             if (y == SIZE_Y - 1 && x == SIZE_X - 1) {
                 if (cells[y - 1][x] != 'X' && cells[y][x - 1] != 'X') {
                     cells[y][x] = '-';
                     cellsFake[y][x] = '-';
-                    System.out.println("Вы потопили корабль.");
+                    if(variant == 1){
+                        System.out.println();
+                        System.out.println("Вы потопили корабль.");
+                    }
+                    if(variant == 2){
+                        System.out.println();
+                        System.out.println("Компьютер потопил ваш корабль.");
+                    }
                 } else {
                     cells[y][x] = '-';
                     cellsFake[y][x] = '-';
-                    System.out.println("Вы ранили корабль.");
+                    if(variant == 1){
+                        System.out.println();
+                        System.out.println("Вы ранили корабль.");
+                    }
+                    if(variant == 2){
+                        System.out.println();
+                        System.out.println("Компьютер ранил ваш корабль.");
+                    }
                 }
             }
         }

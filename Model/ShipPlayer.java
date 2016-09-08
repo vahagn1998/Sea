@@ -1,6 +1,6 @@
 package School.homework.SeaBattle.Model;
 
-abstract public class ShipPlayer {
+abstract public class ShipPlayer implements IShipPlayer {
     private int[] positionYOneDeckShip;
     private int[] positionXOneDeckShip;
     private int[] positionYTwoDeckShip;
