@@ -22,7 +22,7 @@ public class OneDeckShipPlayer extends ShipPlayer {
             super.setPositionXOneDeckShip(chooseX, i, SIZE_ONE_DECK_SHIP_PLAYER);
             y = getPositionYOneDeckShip();
             x = getPositionXOneDeckShip();
-            checkShip(y[i], x[i], i);
+            checkShip(y[i], x[i], i, 0);
             mapPlayer.setOneDeckShip(y[i], x[i]);
             mapPlayer.showMapFake();
         }
@@ -31,7 +31,7 @@ public class OneDeckShipPlayer extends ShipPlayer {
     }
 
     @Override
-    public void checkShip(int yPosition, int xPosition, int i) {
+    public void checkShip(int yPosition, int xPosition, int i, int select) {
         while (true) {
             if (cells[yPosition][xPosition] == 'X') {
                 System.out.println("На этой позиции уже существует корабль, или палуба корабля. Прошу, введите другие координаты.");
@@ -41,7 +41,7 @@ public class OneDeckShipPlayer extends ShipPlayer {
                 super.setPositionXOneDeckShip(chooseX, i, SIZE_ONE_DECK_SHIP_PLAYER);
                 y = getPositionYOneDeckShip();
                 x = getPositionXOneDeckShip();
-                checkShip(y[i], x[i], i);
+                checkShip(y[i], x[i], i, 0);
             }
             if (yPosition != mapPlayer.SIZE_Y && xPosition != mapPlayer.SIZE_X) {
                 if (cells[yPosition + 1][xPosition] == 'X' || cells[yPosition - 1][xPosition] == 'X' || cells[yPosition][xPosition + 1] == 'X' || cells[yPosition][xPosition - 1] == 'X') {
@@ -52,7 +52,7 @@ public class OneDeckShipPlayer extends ShipPlayer {
                     super.setPositionXOneDeckShip(chooseX, i, SIZE_ONE_DECK_SHIP_PLAYER);
                     y = getPositionYOneDeckShip();
                     x = getPositionXOneDeckShip();
-                    checkShip(y[i], x[i], i);
+                    checkShip(y[i], x[i], i, 0);
                 }
             }
             if (yPosition == mapPlayer.SIZE_Y && xPosition != mapPlayer.SIZE_X) {
@@ -64,7 +64,7 @@ public class OneDeckShipPlayer extends ShipPlayer {
                     super.setPositionXOneDeckShip(chooseX, i, SIZE_ONE_DECK_SHIP_PLAYER);
                     y = getPositionYOneDeckShip();
                     x = getPositionXOneDeckShip();
-                    checkShip(y[i], x[i], i);
+                    checkShip(y[i], x[i], i, 0);
                 }
             }
             if (yPosition != mapPlayer.SIZE_Y && xPosition == mapPlayer.SIZE_X) {
@@ -76,7 +76,7 @@ public class OneDeckShipPlayer extends ShipPlayer {
                     super.setPositionXOneDeckShip(chooseX, i, SIZE_ONE_DECK_SHIP_PLAYER);
                     y = getPositionYOneDeckShip();
                     x = getPositionXOneDeckShip();
-                    checkShip(y[i], x[i], i);
+                    checkShip(y[i], x[i], i, 0);
                 }
             }
             if (yPosition == mapPlayer.SIZE_Y && xPosition == mapPlayer.SIZE_X) {
@@ -88,7 +88,7 @@ public class OneDeckShipPlayer extends ShipPlayer {
                     super.setPositionXOneDeckShip(chooseX, i, SIZE_ONE_DECK_SHIP_PLAYER);
                     y = getPositionYOneDeckShip();
                     x = getPositionXOneDeckShip();
-                    checkShip(y[i], x[i], i);
+                    checkShip(y[i], x[i], i, 0);
                 }
             }
             break;

@@ -5,10 +5,12 @@ public class TwoDeckShipPlayer extends ShipPlayer {
     MapPlayer mapPlayer;
     Player player;
     int select;
+    char[][] cells;
 
     public TwoDeckShipPlayer(MapPlayer mapPlayer, Player player) {
         this.mapPlayer = mapPlayer;
         this.player = player;
+        cells = mapPlayer.getCells();
     }
 
     @Override
@@ -21,16 +23,20 @@ public class TwoDeckShipPlayer extends ShipPlayer {
             select = player.selectSecondDeck();
             super.setPositionYTwoDeckShip(chooseY, i, SIZE_TWO_DECK_SHIP_PLAYER);
             super.setPositionXTwoDeckShip(chooseX, i, SIZE_TWO_DECK_SHIP_PLAYER);
+            super.setSecondPositionTwoDeckShip(select, i, SIZE_TWO_DECK_SHIP_PLAYER);
             y = getPositionYTwoDeckShip();
             x = getPositionXTwoDeckShip();
-            checkShip(y[i], x[i], i);
+            select = getSecondPositionTwoDeckShip(i);
+            checkShip(y[i], x[i], i, select);
             mapPlayer.setTwoDeckShip(y[i], x[i], select);
             mapPlayer.showMapFake();
         }
+        System.out.println();
+        System.out.println("Вы закончили установку двухпалубных кораблей.");
     }
 
     @Override
-    public void checkShip(int yPosition, int xPosition, int i) {
+    public void checkShip(int yPosition, int xPosition, int i, int select) {
 
     }
 }

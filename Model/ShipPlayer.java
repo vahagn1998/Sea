@@ -21,12 +21,13 @@ abstract public class ShipPlayer implements IShipPlayer {
         this.positionYTwoDeckShip[i] = positionYTwoDeckShip;
     }
 
-    public void setSecondPositionTwoDeckShip(int secondPositionTwoDeckShip, int i) {
+    public void setSecondPositionTwoDeckShip(int secondPositionTwoDeckShip, int i, int sizeShip) {
+        this.secondPositionTwoDeckShip = new int[sizeShip];
         this.secondPositionTwoDeckShip[i] = secondPositionTwoDeckShip;
     }
 
-    public int[] getSecondPositionTwoDeckShip() {
-        return secondPositionTwoDeckShip;
+    public int getSecondPositionTwoDeckShip(int i) {
+        return secondPositionTwoDeckShip[i];
     }
 
     public int[] getPositionXTwoDeckShip() {
