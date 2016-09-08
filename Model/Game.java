@@ -22,9 +22,9 @@ public class Game {
 
     // Циклы установки кораблей
     public void cycleInstallPositionShip() {
-        oneDeckShipPlayer.setOneDeckShip();
-        twoDeckShipComputer.setTwoDeckShip();
-        oneDeckShipComputer.setOneDeckShip();
+        oneDeckShipPlayer.setShip();
+        twoDeckShipComputer.setShip();
+        oneDeckShipComputer.setShip();
     }
 
     // Установка и показ поля компьютера
