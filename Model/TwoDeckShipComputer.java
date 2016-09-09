@@ -19,33 +19,37 @@ public class TwoDeckShipComputer extends ShipComputer {
         twoDeckShipY = super.getPositionShipY();
     }
 
-    public void setTwoDeckShip() {
-        cyclePositionTwoShip();
+    @Override
+    public void setShip() {
+        cyclePositionShip();
         for (int i = 0; i < SIZE_TWO_DECK_SHIP_COMPUTER; i++) {
-            checkOnOthersTwoDeckShip(twoDeckShipY[i], twoDeckShipX[i], resRandomFull[i]);
+            checkOnOthersShip(twoDeckShipY[i], twoDeckShipX[i], resRandomFull[i]);
         }
     }
 
-    public void cyclePositionTwoShip() {
+    @Override
+    public void cyclePositionShip() {
         for (int i = 0; checkAndReturnValueCyclePositionTwoDeckShip(); i++) {
             Random rand = new Random();
             resRandomFull[i] = rand.nextInt(2);
             twoDeckShipX[i] = randomPositionShip(mapComputer.SIZE_X, SIZE_TWO_DECK_SHIP_COMPUTER);
             twoDeckShipY[i] = randomPositionShip(mapComputer.SIZE_Y, SIZE_TWO_DECK_SHIP_COMPUTER);
-            checkTwoDeckShip(i);
+            checkShip(i);
             checkOnSecondDeckForTwoDeckShip(twoDeckShipY[i], twoDeckShipX[i], i);
             mapComputer.setTwoDeckShip(twoDeckShipY[i], twoDeckShipX[i], resRandomFull[i]);
         }
     }
 
-    public void checkTwoDeckShip(int i) {
-        while (returnResultCheckPositionTwoShip(i)) {
+    @Override
+    public void checkShip(int i) {
+        while (returnResultCheckPositionShip(i)) {
             twoDeckShipX[i] = randomPositionShip(mapComputer.SIZE_X, SIZE_TWO_DECK_SHIP_COMPUTER);
             twoDeckShipY[i] = randomPositionShip(mapComputer.SIZE_Y, SIZE_TWO_DECK_SHIP_COMPUTER);
         }
     }
 
-    public boolean returnResultCheckPositionTwoShip(int i) {
+    @Override
+    public boolean returnResultCheckPositionShip(int i) {
         boolean result = false;
         if (cells[twoDeckShipY[i]][twoDeckShipX[i]] == 'X') {
             result = true;
@@ -74,25 +78,25 @@ public class TwoDeckShipComputer extends ShipComputer {
             if (x == 1) {
                 if (cells[y][x + 1] == 'X') {
                     mapComputer.removeTwoDeckShip(twoDeckShipY, twoDeckShipX, i, resRandomFull);
-                    cyclePositionTwoShip();
+                    cyclePositionShip();
 
                 }
             } else {
                 if (cells[y][x - 1] == 'X') {
                     mapComputer.removeTwoDeckShip(twoDeckShipY, twoDeckShipX, i, resRandomFull);
-                    cyclePositionTwoShip();
+                    cyclePositionShip();
                 }
             }
         } else {
             if (y == 1) {
                 if (cells[y + 1][x] == 'X') {
                     mapComputer.removeTwoDeckShip(twoDeckShipY, twoDeckShipX, i, resRandomFull);
-                    cyclePositionTwoShip();
+                    cyclePositionShip();
                 }
             } else {
                 if (cells[y - 1][x] == 'X') {
                     mapComputer.removeTwoDeckShip(twoDeckShipY, twoDeckShipX, i, resRandomFull);
-                    cyclePositionTwoShip();
+                    cyclePositionShip();
                 }
             }
         }
@@ -116,27 +120,28 @@ public class TwoDeckShipComputer extends ShipComputer {
         return checkStrength;
     }
 
-    public void checkOnOthersTwoDeckShip(int shipY, int shipX, int res) {
+    @Override
+    public void checkOnOthersShip(int shipY, int shipX, int res) {
         while (true) {
             if (shipY == mapComputer.SIZE_Y - 1 && shipX != mapComputer.SIZE_X - 1) {
                 if (res == 0) {
                     if (shipX == 1) {
                         if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX]) {
-                            reinstallTwoDeckShip();
+                            reinstallShip();
                         }
                     } else {
                         if ('X' == cells[shipY - 1][shipX] || 'X' == cells[shipY][shipX + 1]) {
-                            reinstallTwoDeckShip();
+                            reinstallShip();
                         }
                     }
                 } else {
                     if (shipY == 1) {
                         if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY][shipX + 1]) {
-                            reinstallTwoDeckShip();
+                            reinstallShip();
                         }
                     } else {
                         if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY][shipX + 1]) {
-                            reinstallTwoDeckShip();
+                            reinstallShip();
                         }
                     }
                 }
@@ -145,21 +150,21 @@ public class TwoDeckShipComputer extends ShipComputer {
                 if (res == 0) {
                     if (shipX == 1) {
                         if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX]  || 'X' == cells[shipY + 1][shipX]) {
-                            reinstallTwoDeckShip();
+                            reinstallShip();
                         }
                     } else {
                         if ('X' == cells[shipY - 1][shipX] || 'X' == cells[shipY + 1][shipX]) {
-                            reinstallTwoDeckShip();
+                            reinstallShip();
                         }
                     }
                 } else {
                     if (shipY == 1) {
                         if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX]) {
-                            reinstallTwoDeckShip();
+                            reinstallShip();
                         }
                     } else {
                         if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY + 1][shipX]) {
-                            reinstallTwoDeckShip();
+                            reinstallShip();
                         }
                     }
                 }
@@ -168,21 +173,21 @@ public class TwoDeckShipComputer extends ShipComputer {
                 if (res == 0) {
                     if (shipX == 1) {
                         if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX]) {
-                            reinstallTwoDeckShip();
+                            reinstallShip();
                         }
                     } else {
                         if ('X' == cells[shipY - 1][shipX]) {
-                            reinstallTwoDeckShip();
+                            reinstallShip();
                         }
                     }
                 } else {
                     if (shipY == 1) {
                         if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX]) {
-                            reinstallTwoDeckShip();
+                            reinstallShip();
                         }
                     } else {
                         if ('X' == cells[shipY][shipX - 1]) {
-                            reinstallTwoDeckShip();
+                            reinstallShip();
                         }
                     }
                 }
@@ -191,21 +196,21 @@ public class TwoDeckShipComputer extends ShipComputer {
                 if (res == 0) {
                     if (shipX == 1) {
                         if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX] || 'X' == cells[shipY + 1][shipX]) {
-                            reinstallTwoDeckShip();
+                            reinstallShip();
                         }
                     } else {
                         if ('X' == cells[shipY - 1][shipX] || 'X' == cells[shipY + 1][shipX] || 'X' == cells[shipY][shipX + 1]) {
-                            reinstallTwoDeckShip();
+                            reinstallShip();
                         }
                     }
                 } else {
                     if (shipY == 1) {
                         if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX] || 'X' == cells[shipY][shipX + 1]) {
-                            reinstallTwoDeckShip();
+                            reinstallShip();
                         }
                     } else {
                         if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY + 1][shipX] || 'X' == cells[shipY][shipX + 1]) {
-                            reinstallTwoDeckShip();
+                            reinstallShip();
                         }
                     }
                 }
@@ -214,10 +219,11 @@ public class TwoDeckShipComputer extends ShipComputer {
         }
     }
 
-    public void reinstallTwoDeckShip() {
+    @Override
+    public void reinstallShip() {
         if (removeCash < 1) {
             mapComputer.removeTwoDeckShip(twoDeckShipY, twoDeckShipX, SIZE_TWO_DECK_SHIP_COMPUTER, resRandomFull);
-            setTwoDeckShip();
+            setShip();
         }
         removeCash++;
     }

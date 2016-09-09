@@ -1,30 +1,37 @@
 package School.homework.SeaBattle.Model;
 
-abstract public class ShipPlayer {
+abstract public class ShipPlayer implements IShipPlayer {
     private int[] positionYOneDeckShip;
     private int[] positionXOneDeckShip;
     private int[] positionYTwoDeckShip;
     private int[] positionXTwoDeckShip;
     private int[] secondPositionTwoDeckShip;
+    int chooseX;
+    int chooseY;
+    int[] y;
+    int[] x;
 
-    public int[] getPositionXTwoDeckShip() {
-        return positionXTwoDeckShip;
-    }
-
-    public void setPositionXTwoDeckShip(int positionXTwoDeckShip, int i) {
+    public void setPositionXTwoDeckShip(int positionXTwoDeckShip, int i, int sizeShip) {
+        this.positionXTwoDeckShip = new int[sizeShip];
         this.positionXTwoDeckShip[i] = positionXTwoDeckShip;
     }
 
-    public void setPositionYTwoDeckShip(int positionYTwoDeckShip, int i) {
+    public void setPositionYTwoDeckShip(int positionYTwoDeckShip, int i, int sizeShip) {
+        this.positionYTwoDeckShip = new int[sizeShip];
         this.positionYTwoDeckShip[i] = positionYTwoDeckShip;
     }
 
-    public void setSecondPositionTwoDeckShip(int secondPositionTwoDeckShip, int i) {
+    public void setSecondPositionTwoDeckShip(int secondPositionTwoDeckShip, int i, int sizeShip) {
+        this.secondPositionTwoDeckShip = new int[sizeShip];
         this.secondPositionTwoDeckShip[i] = secondPositionTwoDeckShip;
     }
 
-    public int[] getSecondPositionTwoDeckShip() {
-        return secondPositionTwoDeckShip;
+    public int getSecondPositionTwoDeckShip(int i) {
+        return secondPositionTwoDeckShip[i];
+    }
+
+    public int[] getPositionXTwoDeckShip() {
+        return positionXTwoDeckShip;
     }
 
     public int[] getPositionYTwoDeckShip() {

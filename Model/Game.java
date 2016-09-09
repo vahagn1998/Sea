@@ -14,7 +14,6 @@ public class Game {
     // Игра
     public void game() {
         fillingFieldComputer();
-        System.out.println();
         fillingFieldPlayer();
         cycleInstallPositionShip();
         cycleGame();
@@ -22,9 +21,10 @@ public class Game {
 
     // Циклы установки кораблей
     public void cycleInstallPositionShip() {
-        oneDeckShipPlayer.setOneDeckShip();
-        twoDeckShipComputer.setTwoDeckShip();
-        oneDeckShipComputer.setOneDeckShip();
+        twoDeckShipPlayer.setShip();
+        oneDeckShipPlayer.setShip();
+        twoDeckShipComputer.setShip();
+        oneDeckShipComputer.setShip();
     }
 
     // Установка и показ поля компьютера
@@ -32,6 +32,7 @@ public class Game {
         mapComputer.field();
         mapComputer.fieldFake();
         mapComputer.showMapFake();
+        System.out.println();
     }
 
     // Установка и показ поля игрока

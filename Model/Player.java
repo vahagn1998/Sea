@@ -68,4 +68,22 @@ public class Player implements IShootCoordinates {
         System.out.println("Вы ввели " + x + "\n");
         return x;
     }
+
+    public int selectSecondDeck(){
+        System.out.println();
+        System.out.println("Как вы хотите чтобы вторая палуба была установлена? Если горизонтально - введите 0, а если вертикально - введите 1");
+        Scanner scannerSelect = new Scanner(System.in);
+        String sel = scannerSelect.nextLine();
+        while(sel.trim().length() == 0 || Integer.parseInt(sel) < 0 || Integer.parseInt(sel) > 1){
+            System.out.println("Такого варианта не существует, введите 0 (для горизонтального размещения) или 1 (для вертикального размещения).");
+            sel = scannerSelect.nextLine();
+        }
+        int select = Integer.parseInt(sel);
+        if(select == 0){
+            System.out.println("Вторая палуба будет размещена горизонтально.");
+        }else{
+            System.out.println("Вторая палуба будет размещена вертикаольно.");
+        }
+        return select;
+    }
 }

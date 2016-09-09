@@ -16,30 +16,34 @@ public class OneDeckShipComputer extends ShipComputer {
         oneDeckShipY = super.getPositionShipY();
     }
 
-    public void setOneDeckShip() {
-        cyclePositionOneShip();
+    @Override
+    public void setShip() {
+        cyclePositionShip();
         for (int i = 0; i < SIZE_ONE_DECK_SHIP_COMPUTER; i++) {
-            checkOnOthersOneDeckShip(oneDeckShipY[i], oneDeckShipX[i]);
+            checkOnOthersShip(oneDeckShipY[i], oneDeckShipX[i], 0);
         }
     }
 
-    public void cyclePositionOneShip() {
+    @Override
+    public void cyclePositionShip() {
         for (int i = 0; i < SIZE_ONE_DECK_SHIP_COMPUTER; i++) {
             oneDeckShipX[i] = randomPositionShip(mapComputer.SIZE_X, SIZE_ONE_DECK_SHIP_COMPUTER);
             oneDeckShipY[i] = randomPositionShip(mapComputer.SIZE_Y, SIZE_ONE_DECK_SHIP_COMPUTER);
-            checkOneDeckShip(i);
+            checkShip(i);
             mapComputer.setOneDeckShip(oneDeckShipY[i], oneDeckShipX[i]);
         }
     }
 
-    public void checkOneDeckShip(int i) {
-        while (returnResultCheckPositionOneShip(i)) {
+    @Override
+    public void checkShip(int i) {
+        while (returnResultCheckPositionShip(i)) {
             oneDeckShipX[i] = randomPositionShip(mapComputer.SIZE_X, SIZE_ONE_DECK_SHIP_COMPUTER);
             oneDeckShipY[i] = randomPositionShip(mapComputer.SIZE_Y, SIZE_ONE_DECK_SHIP_COMPUTER);
         }
     }
 
-    public boolean returnResultCheckPositionOneShip(int i) {
+    @Override
+    public boolean returnResultCheckPositionShip(int i) {
         boolean result = false;
         if (cells[oneDeckShipY[i]][oneDeckShipX[i]] == 'X') {
             result = true;
@@ -47,36 +51,38 @@ public class OneDeckShipComputer extends ShipComputer {
         return result;
     }
 
-    public void checkOnOthersOneDeckShip(int shipY, int shipX) {
+    @Override
+    public void checkOnOthersShip(int shipY, int shipX, int res) {
         while (true) {
             if (shipY == mapComputer.SIZE_Y - 1 && shipX != mapComputer.SIZE_X - 1) {
                 if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX] || 'X' == cells[shipY][shipX + 1]) {
-                    reinstallOneDeckShip();
+                    reinstallShip();
                 }
                 break;
             } else if (shipX == mapComputer.SIZE_X - 1 && shipY != mapComputer.SIZE_Y - 1) {
                 if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX] || 'X' == cells[shipY + 1][shipX]) {
-                    reinstallOneDeckShip();
+                    reinstallShip();
                 }
                 break;
             } else if (shipX == mapComputer.SIZE_X - 1 && shipY == mapComputer.SIZE_Y - 1) {
                 if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX]) {
-                    reinstallOneDeckShip();
+                    reinstallShip();
                 }
                 break;
             } else if (shipX != mapComputer.SIZE_X - 1 && shipY != mapComputer.SIZE_Y - 1) {
                 if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX] || 'X' == cells[shipY + 1][shipX] || 'X' == cells[shipY][shipX + 1]) {
-                    reinstallOneDeckShip();
+                    reinstallShip();
                 }
                 break;
             }
         }
     }
 
-    public void reinstallOneDeckShip() {
+    @Override
+    public void reinstallShip() {
         if (removeCash < 1) {
             mapComputer.removeOneDeckShip(oneDeckShipY, oneDeckShipX, SIZE_ONE_DECK_SHIP_COMPUTER);
-            setOneDeckShip();
+            setShip();
         }
         removeCash++;
     }
