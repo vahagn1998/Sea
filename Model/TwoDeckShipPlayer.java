@@ -37,6 +37,81 @@ public class TwoDeckShipPlayer extends ShipPlayer {
 
     @Override
     public void checkShip(int yPosition, int xPosition, int i, int select) {
-
+        while (true) {
+            if (cells[yPosition][xPosition] == 'X') {
+                System.out.println("На этой позиции уже существует корабль, или палуба корабля. Прошу, введите другие координаты.");
+                chooseY = player.chooseYPosition(mapPlayer.SIZE_Y);
+                chooseX = player.chooseXPosition(mapPlayer.SIZE_X);
+                select = player.selectSecondDeck();
+                super.setPositionYOneDeckShip(chooseY, i, SIZE_TWO_DECK_SHIP_PLAYER);
+                super.setPositionXOneDeckShip(chooseX, i, SIZE_TWO_DECK_SHIP_PLAYER);
+                super.setSecondPositionTwoDeckShip(select, i, SIZE_TWO_DECK_SHIP_PLAYER);
+                y = getPositionYOneDeckShip();
+                x = getPositionXOneDeckShip();
+                select = getSecondPositionTwoDeckShip(i);
+                checkShip(y[i], x[i], i, select);
+            }
+            if (yPosition != mapPlayer.SIZE_Y && xPosition != mapPlayer.SIZE_X) {
+                if (cells[yPosition + 1][xPosition] == 'X' || cells[yPosition - 1][xPosition] == 'X' || cells[yPosition][xPosition + 1] == 'X' || cells[yPosition][xPosition - 1] == 'X') {
+                    System.out.println("Вы не можете разместить корабль вплотную рядом с другим. Прошу, разместите корабль на другую позицию.");
+                    chooseY = player.chooseYPosition(mapPlayer.SIZE_Y);
+                    chooseX = player.chooseXPosition(mapPlayer.SIZE_X);
+                    select = player.selectSecondDeck();
+                    super.setPositionYOneDeckShip(chooseY, i, SIZE_TWO_DECK_SHIP_PLAYER);
+                    super.setPositionXOneDeckShip(chooseX, i, SIZE_TWO_DECK_SHIP_PLAYER);
+                    super.setSecondPositionTwoDeckShip(select, i, SIZE_TWO_DECK_SHIP_PLAYER);
+                    y = getPositionYOneDeckShip();
+                    x = getPositionXOneDeckShip();
+                    select = getSecondPositionTwoDeckShip(i);
+                    checkShip(y[i], x[i], i, select);
+                }
+            }
+            if (yPosition == mapPlayer.SIZE_Y && xPosition != mapPlayer.SIZE_X) {
+                if (cells[yPosition - 1][xPosition] == 'X' || cells[yPosition][xPosition + 1] == 'X' || cells[yPosition][xPosition - 1] == 'X') {
+                    System.out.println("Вы не можете разместить корабль вплотную рядом с другим. Прошу, разместите корабль на другую позицию.");
+                    chooseY = player.chooseYPosition(mapPlayer.SIZE_Y);
+                    chooseX = player.chooseXPosition(mapPlayer.SIZE_X);
+                    select = player.selectSecondDeck();
+                    super.setPositionYOneDeckShip(chooseY, i, SIZE_TWO_DECK_SHIP_PLAYER);
+                    super.setPositionXOneDeckShip(chooseX, i, SIZE_TWO_DECK_SHIP_PLAYER);
+                    super.setSecondPositionTwoDeckShip(select, i, SIZE_TWO_DECK_SHIP_PLAYER);
+                    y = getPositionYOneDeckShip();
+                    x = getPositionXOneDeckShip();
+                    select = getSecondPositionTwoDeckShip(i);
+                    checkShip(y[i], x[i], i, select);
+                }
+            }
+            if (yPosition != mapPlayer.SIZE_Y && xPosition == mapPlayer.SIZE_X) {
+                if (cells[yPosition + 1][xPosition] == 'X' || cells[yPosition - 1][xPosition] == 'X' || cells[yPosition][xPosition - 1] == 'X') {
+                    System.out.println("Вы не можете разместить корабль вплотную рядом с другим. Прошу, разместите корабль на другую позицию.");
+                    chooseY = player.chooseYPosition(mapPlayer.SIZE_Y);
+                    chooseX = player.chooseXPosition(mapPlayer.SIZE_X);
+                    select = player.selectSecondDeck();
+                    super.setPositionYOneDeckShip(chooseY, i, SIZE_TWO_DECK_SHIP_PLAYER);
+                    super.setPositionXOneDeckShip(chooseX, i, SIZE_TWO_DECK_SHIP_PLAYER);
+                    super.setSecondPositionTwoDeckShip(select, i, SIZE_TWO_DECK_SHIP_PLAYER);
+                    y = getPositionYOneDeckShip();
+                    x = getPositionXOneDeckShip();
+                    select = getSecondPositionTwoDeckShip(i);
+                    checkShip(y[i], x[i], i, select);
+                }
+            }
+            if (yPosition == mapPlayer.SIZE_Y && xPosition == mapPlayer.SIZE_X) {
+                if (cells[yPosition - 1][xPosition] == 'X' || cells[yPosition][xPosition - 1] == 'X') {
+                    System.out.println("Вы не можете разместить корабль вплотную рядом с другим. Прошу, разместите корабль на другую позицию.");
+                    chooseY = player.chooseYPosition(mapPlayer.SIZE_Y);
+                    chooseX = player.chooseXPosition(mapPlayer.SIZE_X);
+                    select = player.selectSecondDeck();
+                    super.setPositionYOneDeckShip(chooseY, i, SIZE_TWO_DECK_SHIP_PLAYER);
+                    super.setPositionXOneDeckShip(chooseX, i, SIZE_TWO_DECK_SHIP_PLAYER);
+                    super.setSecondPositionTwoDeckShip(select, i, SIZE_TWO_DECK_SHIP_PLAYER);
+                    y = getPositionYOneDeckShip();
+                    x = getPositionXOneDeckShip();
+                    select = getSecondPositionTwoDeckShip(i);
+                    checkShip(y[i], x[i], i, select);
+                }
+            }
+            break;
+        }
     }
 }
