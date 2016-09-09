@@ -43,7 +43,7 @@ public class OneDeckShipPlayer extends ShipPlayer {
                 x = getPositionXOneDeckShip();
                 checkShip(y[i], x[i], i, 0);
             }
-            if (yPosition != mapPlayer.SIZE_Y && xPosition != mapPlayer.SIZE_X) {
+            if (yPosition != mapPlayer.SIZE_Y - 1 && xPosition != mapPlayer.SIZE_X - 1) {
                 if (cells[yPosition + 1][xPosition] == 'X' || cells[yPosition - 1][xPosition] == 'X' || cells[yPosition][xPosition + 1] == 'X' || cells[yPosition][xPosition - 1] == 'X') {
                     System.out.println("Вы не можете разместить корабль вплотную рядом с другим. Прошу, разместите корабль на другую позицию.");
                     chooseY = player.chooseYPosition(mapPlayer.SIZE_Y);
@@ -55,7 +55,7 @@ public class OneDeckShipPlayer extends ShipPlayer {
                     checkShip(y[i], x[i], i, 0);
                 }
             }
-            if (yPosition == mapPlayer.SIZE_Y && xPosition != mapPlayer.SIZE_X) {
+            if (yPosition == mapPlayer.SIZE_Y - 1 && xPosition != mapPlayer.SIZE_X - 1) {
                 if (cells[yPosition - 1][xPosition] == 'X' || cells[yPosition][xPosition + 1] == 'X' || cells[yPosition][xPosition - 1] == 'X') {
                     System.out.println("Вы не можете разместить корабль вплотную рядом с другим. Прошу, разместите корабль на другую позицию.");
                     chooseY = player.chooseYPosition(mapPlayer.SIZE_Y);
@@ -67,7 +67,7 @@ public class OneDeckShipPlayer extends ShipPlayer {
                     checkShip(y[i], x[i], i, 0);
                 }
             }
-            if (yPosition != mapPlayer.SIZE_Y && xPosition == mapPlayer.SIZE_X) {
+            if (yPosition != mapPlayer.SIZE_Y - 1 && xPosition == mapPlayer.SIZE_X - 1) {
                 if (cells[yPosition + 1][xPosition] == 'X' || cells[yPosition - 1][xPosition] == 'X' || cells[yPosition][xPosition - 1] == 'X') {
                     System.out.println("Вы не можете разместить корабль вплотную рядом с другим. Прошу, разместите корабль на другую позицию.");
                     chooseY = player.chooseYPosition(mapPlayer.SIZE_Y);
@@ -79,7 +79,7 @@ public class OneDeckShipPlayer extends ShipPlayer {
                     checkShip(y[i], x[i], i, 0);
                 }
             }
-            if (yPosition == mapPlayer.SIZE_Y && xPosition == mapPlayer.SIZE_X) {
+            if (yPosition == mapPlayer.SIZE_Y - 1 && xPosition == mapPlayer.SIZE_X - 1) {
                 if (cells[yPosition - 1][xPosition] == 'X' || cells[yPosition][xPosition - 1] == 'X') {
                     System.out.println("Вы не можете разместить корабль вплотную рядом с другим. Прошу, разместите корабль на другую позицию.");
                     chooseY = player.chooseYPosition(mapPlayer.SIZE_Y);
