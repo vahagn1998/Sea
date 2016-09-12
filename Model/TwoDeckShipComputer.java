@@ -1,5 +1,7 @@
 package School.homework.SeaBattle.Model;
 
+import School.homework.SeaBattle.View.MapComputer;
+
 import java.util.Random;
 
 public class TwoDeckShipComputer extends ShipComputer {

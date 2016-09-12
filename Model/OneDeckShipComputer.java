@@ -1,5 +1,7 @@
 package School.homework.SeaBattle.Model;
 
+import School.homework.SeaBattle.View.MapComputer;
+
 public class OneDeckShipComputer extends ShipComputer {
     MapComputer mapComputer;
     public static final int SIZE_ONE_DECK_SHIP_COMPUTER = 5;

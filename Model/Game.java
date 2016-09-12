@@ -1,5 +1,10 @@
 package School.homework.SeaBattle.Model;
 
+import School.homework.SeaBattle.Controller.Computer;
+import School.homework.SeaBattle.Controller.Player;
+import School.homework.SeaBattle.View.MapComputer;
+import School.homework.SeaBattle.View.MapPlayer;
+
 public class Game {
     MapComputer mapComputer = new MapComputer();
     MapPlayer mapPlayer = new MapPlayer();

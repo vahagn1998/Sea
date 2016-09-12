@@ -32,4 +32,5 @@ abstract public class ShipComputer implements IShipComputer {
         }
         return 0;
     }
+
 }

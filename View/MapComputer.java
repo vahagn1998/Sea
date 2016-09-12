@@ -1,4 +1,4 @@
-package School.homework.SeaBattle.Model;
+package School.homework.SeaBattle.View;
 
 
 public class MapComputer extends Map {

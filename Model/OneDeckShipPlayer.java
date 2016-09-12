@@ -1,5 +1,8 @@
 package School.homework.SeaBattle.Model;
 
+import School.homework.SeaBattle.Controller.Player;
+import School.homework.SeaBattle.View.MapPlayer;
+
 public class OneDeckShipPlayer extends ShipPlayer {
     public static final int SIZE_ONE_DECK_SHIP_PLAYER = 5;
     MapPlayer mapPlayer;

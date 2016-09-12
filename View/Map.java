@@ -1,4 +1,7 @@
-package School.homework.SeaBattle.Model;
+package School.homework.SeaBattle.View;
+
+import School.homework.SeaBattle.Controller.Player;
+import School.homework.SeaBattle.Controller.Computer;
 
 abstract public class Map {
     public static final int SIZE_Y = 8;

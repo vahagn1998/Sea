@@ -1,4 +1,6 @@
-package School.homework.SeaBattle.Model;
+package School.homework.SeaBattle.Controller;
+
+import School.homework.SeaBattle.Model.IShootCoordinates;
 
 import java.util.Scanner;
 

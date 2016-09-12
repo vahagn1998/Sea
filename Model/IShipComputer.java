@@ -15,4 +15,5 @@ public interface IShipComputer {
     void checkOnOthersShip(int shipY, int shipX, int res);
 
     void reinstallShip();
+
 }
