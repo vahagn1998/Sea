@@ -1,7 +1,11 @@
-package School.homework.SeaBattle.Model;
+package School.homework.SeaBattle;
 
 import School.homework.SeaBattle.Controller.Computer;
 import School.homework.SeaBattle.Controller.Player;
+import School.homework.SeaBattle.Model.OneDeckShipComputer;
+import School.homework.SeaBattle.Model.OneDeckShipPlayer;
+import School.homework.SeaBattle.Model.TwoDeckShipComputer;
+import School.homework.SeaBattle.Model.TwoDeckShipPlayer;
 import School.homework.SeaBattle.View.MapComputer;
 import School.homework.SeaBattle.View.MapPlayer;
 
