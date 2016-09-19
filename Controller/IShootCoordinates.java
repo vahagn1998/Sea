@@ -1,4 +1,4 @@
-package School.homework.SeaBattle.Model;
+package School.homework.SeaBattle.Controller;
 
 /**
  * Created by Администратор on 06.09.2016.

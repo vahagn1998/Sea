@@ -34,6 +34,12 @@ public class OneDeckShipPlayer extends ShipPlayer {
     }
 
     @Override
+    public void setShipAuto(MapPlayer mapPlayer) {
+        OneDeckShipComputer autoPlacement = new OneDeckShipComputer(mapPlayer);
+        autoPlacement.setShip();
+    }
+
+    @Override
     public void checkShip(int yPosition, int xPosition, int i, int select) {
         while (true) {
             if (cells[yPosition][xPosition] == 'X') {

@@ -1,9 +1,11 @@
 package School.homework.SeaBattle.Model;
 
+import School.homework.SeaBattle.View.Map;
 import School.homework.SeaBattle.View.MapComputer;
+import School.homework.SeaBattle.View.MapPlayer;
 
 public class OneDeckShipComputer extends ShipComputer {
-    MapComputer mapComputer;
+    Map mapComputer;
     public static final int SIZE_ONE_DECK_SHIP_COMPUTER = 5;
     char[][] cells;
     int[] oneDeckShipX;
@@ -12,6 +14,15 @@ public class OneDeckShipComputer extends ShipComputer {
     public OneDeckShipComputer(MapComputer mapComputer) {
         this.mapComputer = mapComputer;
         cells = mapComputer.getCells();
+        super.setSizePositionShipX(SIZE_ONE_DECK_SHIP_COMPUTER);
+        super.setSizePositionShipY(SIZE_ONE_DECK_SHIP_COMPUTER);
+        oneDeckShipX = super.getPositionShipX();
+        oneDeckShipY = super.getPositionShipY();
+    }
+
+    public OneDeckShipComputer(MapPlayer mapPlayer) {
+        this.mapComputer = mapPlayer;
+        cells = mapPlayer.getCells();
         super.setSizePositionShipX(SIZE_ONE_DECK_SHIP_COMPUTER);
         super.setSizePositionShipY(SIZE_ONE_DECK_SHIP_COMPUTER);
         oneDeckShipX = super.getPositionShipX();

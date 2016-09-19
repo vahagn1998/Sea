@@ -30,8 +30,16 @@ public class Game {
 
     // Циклы установки кораблей
     public void cycleInstallPositionShip() {
-        twoDeckShipPlayer.setShip();
-        oneDeckShipPlayer.setShip();
+        // Размещение кораблей игрока
+        String methodPlacementShip = player.choosePlacementShip();
+        if(methodPlacementShip.equals("manual")){
+            twoDeckShipPlayer.setShip();
+            oneDeckShipPlayer.setShip();
+        }else{
+            twoDeckShipPlayer.setShipAuto(mapPlayer);
+            oneDeckShipPlayer.setShipAuto(mapPlayer);
+        }
+        // Размещение кораблей компьютера
         twoDeckShipComputer.setShip();
         oneDeckShipComputer.setShip();
     }
