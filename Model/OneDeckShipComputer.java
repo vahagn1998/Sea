@@ -93,10 +93,8 @@ public class OneDeckShipComputer extends ShipComputer {
 
     @Override
     public void reinstallShip() {
-        if (removeCash < 1) {
-            mapComputer.removeOneDeckShip(oneDeckShipY, oneDeckShipX, SIZE_ONE_DECK_SHIP_COMPUTER);
-            setShip();
-        }
-        removeCash++;
+        mapComputer.removeOneDeckShip(oneDeckShipY, oneDeckShipX, SIZE_ONE_DECK_SHIP_COMPUTER);
+        setShip();
+
     }
 }

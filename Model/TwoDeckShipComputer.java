@@ -234,10 +234,7 @@ public class TwoDeckShipComputer extends ShipComputer {
 
     @Override
     public void reinstallShip() {
-        if (removeCash < 1) {
-            map.removeTwoDeckShip(twoDeckShipY, twoDeckShipX, SIZE_TWO_DECK_SHIP_COMPUTER, resRandomFull);
-            setShip();
-        }
-        removeCash++;
+        map.removeTwoDeckShip(twoDeckShipY, twoDeckShipX, SIZE_TWO_DECK_SHIP_COMPUTER, resRandomFull);
+        setShip();
     }
 }

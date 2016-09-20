@@ -35,7 +35,8 @@ public class Game {
         if(methodPlacementShip.equals("manual")){
             twoDeckShipPlayer.setShip();
             oneDeckShipPlayer.setShip();
-        }else{
+        }
+        if(methodPlacementShip.equals(("auto"))){
             twoDeckShipPlayer.setShipAuto(mapPlayer);
             oneDeckShipPlayer.setShipAuto(mapPlayer);
         }

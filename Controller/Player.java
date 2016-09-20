@@ -92,7 +92,7 @@ public class Player implements IShootCoordinates {
         System.out.println("Введите: auto - для автоматического размещения кораблей(компьютер за вас разместит корабли), manual - для самостоятельного размещения кораблей.");
         Scanner scannerChoosePlacement = new Scanner(System.in);
         String choosePlacement = scannerChoosePlacement.nextLine();
-        while (choosePlacement == "auto" || choosePlacement == "manual" || choosePlacement.length() == 0){
+        while (!(choosePlacement.equals("auto")) && !(choosePlacement.equals("manual")) || choosePlacement.length() == 0){
             System.out.println("Вы ввели не правильно, прошу повторите.");
             System.out.println("Введите: auto - для автоматического размещения кораблей(компьютер за вас разместит корабли), manual - для самостоятельного размещения кораблей.");
             choosePlacement = scannerChoosePlacement.nextLine();

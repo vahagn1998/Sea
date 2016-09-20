@@ -3,7 +3,6 @@ package School.homework.SeaBattle.Model;
 import java.util.Random;
 
 abstract public class ShipComputer implements IShipComputer {
-    int removeCash;
     private int[] positionShipX;
     private int[] positionShipY;
 
