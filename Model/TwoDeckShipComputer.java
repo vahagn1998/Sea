@@ -45,8 +45,8 @@ public class TwoDeckShipComputer extends ShipComputer {
         for (int i = 0; checkAndReturnValueCyclePositionTwoDeckShip(); i++) {
             Random rand = new Random();
             resRandomFull[i] = rand.nextInt(2);
-            twoDeckShipX[i] = randomPositionShip(map.SIZE_X, SIZE_TWO_DECK_SHIP_COMPUTER);
-            twoDeckShipY[i] = randomPositionShip(map.SIZE_Y, SIZE_TWO_DECK_SHIP_COMPUTER);
+            twoDeckShipX[i] = randomPositionShip(Map.SIZE_X, SIZE_TWO_DECK_SHIP_COMPUTER);
+            twoDeckShipY[i] = randomPositionShip(Map.SIZE_Y, SIZE_TWO_DECK_SHIP_COMPUTER);
             checkShip(i);
             checkOnSecondDeckForTwoDeckShip(twoDeckShipY[i], twoDeckShipX[i], i);
             map.setTwoDeckShip(twoDeckShipY[i], twoDeckShipX[i], resRandomFull[i]);
@@ -56,8 +56,8 @@ public class TwoDeckShipComputer extends ShipComputer {
     @Override
     public void checkShip(int i) {
         while (returnResultCheckPositionShip(i)) {
-            twoDeckShipX[i] = randomPositionShip(map.SIZE_X, SIZE_TWO_DECK_SHIP_COMPUTER);
-            twoDeckShipY[i] = randomPositionShip(map.SIZE_Y, SIZE_TWO_DECK_SHIP_COMPUTER);
+            twoDeckShipX[i] = randomPositionShip(Map.SIZE_X, SIZE_TWO_DECK_SHIP_COMPUTER);
+            twoDeckShipY[i] = randomPositionShip(Map.SIZE_Y, SIZE_TWO_DECK_SHIP_COMPUTER);
         }
     }
 
@@ -67,11 +67,11 @@ public class TwoDeckShipComputer extends ShipComputer {
         if (cells[twoDeckShipY[i]][twoDeckShipX[i]] == 'X') {
             result = true;
         }
-        if (twoDeckShipY[i] != map.SIZE_Y - 1) {
+        if (twoDeckShipY[i] != Map.SIZE_Y - 1) {
             if (cells[twoDeckShipY[i] + 1][twoDeckShipX[i]] == 'X') {
                 result = true;
             }
-        } else if (twoDeckShipX[i] != map.SIZE_X - 1) {
+        } else if (twoDeckShipX[i] != Map.SIZE_X - 1) {
             if (cells[twoDeckShipY[i]][twoDeckShipX[i] + 1] == 'X') {
                 result = true;
             }
@@ -136,7 +136,7 @@ public class TwoDeckShipComputer extends ShipComputer {
     @Override
     public void checkOnOthersShip(int shipY, int shipX, int res) {
         while (true) {
-            if (shipY == map.SIZE_Y - 1 && shipX != map.SIZE_X - 1) {
+            if (shipY == Map.SIZE_Y - 1 && shipX != Map.SIZE_X - 1) {
                 if (res == 0) {
                     if (shipX == 1) {
                         if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX]) {
@@ -159,7 +159,7 @@ public class TwoDeckShipComputer extends ShipComputer {
                     }
                 }
                 break;
-            } else if (shipX == map.SIZE_X - 1 && shipY != map.SIZE_Y - 1) {
+            } else if (shipX == Map.SIZE_X - 1 && shipY != Map.SIZE_Y - 1) {
                 if (res == 0) {
                     if (shipX == 1) {
                         if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX]  || 'X' == cells[shipY + 1][shipX]) {
@@ -182,7 +182,7 @@ public class TwoDeckShipComputer extends ShipComputer {
                     }
                 }
                 break;
-            } else if (shipX == map.SIZE_X - 1 && shipY == map.SIZE_Y - 1) {
+            } else if (shipX == Map.SIZE_X - 1 && shipY == Map.SIZE_Y - 1) {
                 if (res == 0) {
                     if (shipX == 1) {
                         if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX]) {
@@ -205,7 +205,7 @@ public class TwoDeckShipComputer extends ShipComputer {
                     }
                 }
                 break;
-            } else if (shipX != map.SIZE_X - 1 && shipY != map.SIZE_Y - 1) {
+            } else if (shipX != Map.SIZE_X - 1 && shipY != Map.SIZE_Y - 1) {
                 if (res == 0) {
                     if (shipX == 1) {
                         if ('X' == cells[shipY][shipX - 1] || 'X' == cells[shipY - 1][shipX] || 'X' == cells[shipY + 1][shipX]) {

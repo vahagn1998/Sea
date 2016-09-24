@@ -1,6 +1,7 @@
 package School.homework.SeaBattle.Model;
 
 import School.homework.SeaBattle.Controller.Player;
+import School.homework.SeaBattle.View.Map;
 import School.homework.SeaBattle.View.MapPlayer;
 
 public class OneDeckShipPlayer extends ShipPlayer {
@@ -19,8 +20,8 @@ public class OneDeckShipPlayer extends ShipPlayer {
         System.out.println();
         System.out.println("И ещё, вы должны установить " + SIZE_ONE_DECK_SHIP_PLAYER + " однопалубных кораблей.");
         for (int i = 0; i < SIZE_ONE_DECK_SHIP_PLAYER; i++) {
-            chooseY = player.chooseYPosition(mapPlayer.SIZE_Y);
-            chooseX = player.chooseXPosition(mapPlayer.SIZE_X);
+            chooseY = player.chooseYPosition(Map.SIZE_Y);
+            chooseX = player.chooseXPosition(Map.SIZE_X);
             super.setPositionYOneDeckShip(chooseY, i, SIZE_ONE_DECK_SHIP_PLAYER);
             super.setPositionXOneDeckShip(chooseX, i, SIZE_ONE_DECK_SHIP_PLAYER);
             y = getPositionYOneDeckShip();
@@ -44,19 +45,19 @@ public class OneDeckShipPlayer extends ShipPlayer {
         while (true) {
             if (cells[yPosition][xPosition] == 'X') {
                 System.out.println("На этой позиции уже существует корабль, или палуба корабля. Прошу, введите другие координаты.");
-                chooseY = player.chooseYPosition(mapPlayer.SIZE_Y);
-                chooseX = player.chooseXPosition(mapPlayer.SIZE_X);
+                chooseY = player.chooseYPosition(Map.SIZE_Y);
+                chooseX = player.chooseXPosition(Map.SIZE_X);
                 super.setPositionYOneDeckShip(chooseY, i, SIZE_ONE_DECK_SHIP_PLAYER);
                 super.setPositionXOneDeckShip(chooseX, i, SIZE_ONE_DECK_SHIP_PLAYER);
                 y = getPositionYOneDeckShip();
                 x = getPositionXOneDeckShip();
                 checkShip(y[i], x[i], i, 0);
             }
-            if (yPosition != mapPlayer.SIZE_Y - 1 && xPosition != mapPlayer.SIZE_X - 1) {
+            if (yPosition != Map.SIZE_Y - 1 && xPosition != Map.SIZE_X - 1) {
                 if (cells[yPosition + 1][xPosition] == 'X' || cells[yPosition - 1][xPosition] == 'X' || cells[yPosition][xPosition + 1] == 'X' || cells[yPosition][xPosition - 1] == 'X') {
                     System.out.println("Вы не можете разместить корабль вплотную рядом с другим. Прошу, разместите корабль на другую позицию.");
-                    chooseY = player.chooseYPosition(mapPlayer.SIZE_Y);
-                    chooseX = player.chooseXPosition(mapPlayer.SIZE_X);
+                    chooseY = player.chooseYPosition(Map.SIZE_Y);
+                    chooseX = player.chooseXPosition(Map.SIZE_X);
                     super.setPositionYOneDeckShip(chooseY, i, SIZE_ONE_DECK_SHIP_PLAYER);
                     super.setPositionXOneDeckShip(chooseX, i, SIZE_ONE_DECK_SHIP_PLAYER);
                     y = getPositionYOneDeckShip();
@@ -64,11 +65,11 @@ public class OneDeckShipPlayer extends ShipPlayer {
                     checkShip(y[i], x[i], i, 0);
                 }
             }
-            if (yPosition == mapPlayer.SIZE_Y - 1 && xPosition != mapPlayer.SIZE_X - 1) {
+            if (yPosition == Map.SIZE_Y - 1 && xPosition != Map.SIZE_X - 1) {
                 if (cells[yPosition - 1][xPosition] == 'X' || cells[yPosition][xPosition + 1] == 'X' || cells[yPosition][xPosition - 1] == 'X') {
                     System.out.println("Вы не можете разместить корабль вплотную рядом с другим. Прошу, разместите корабль на другую позицию.");
-                    chooseY = player.chooseYPosition(mapPlayer.SIZE_Y);
-                    chooseX = player.chooseXPosition(mapPlayer.SIZE_X);
+                    chooseY = player.chooseYPosition(Map.SIZE_Y);
+                    chooseX = player.chooseXPosition(Map.SIZE_X);
                     super.setPositionYOneDeckShip(chooseY, i, SIZE_ONE_DECK_SHIP_PLAYER);
                     super.setPositionXOneDeckShip(chooseX, i, SIZE_ONE_DECK_SHIP_PLAYER);
                     y = getPositionYOneDeckShip();
@@ -76,11 +77,11 @@ public class OneDeckShipPlayer extends ShipPlayer {
                     checkShip(y[i], x[i], i, 0);
                 }
             }
-            if (yPosition != mapPlayer.SIZE_Y - 1 && xPosition == mapPlayer.SIZE_X - 1) {
+            if (yPosition != Map.SIZE_Y - 1 && xPosition == Map.SIZE_X - 1) {
                 if (cells[yPosition + 1][xPosition] == 'X' || cells[yPosition - 1][xPosition] == 'X' || cells[yPosition][xPosition - 1] == 'X') {
                     System.out.println("Вы не можете разместить корабль вплотную рядом с другим. Прошу, разместите корабль на другую позицию.");
-                    chooseY = player.chooseYPosition(mapPlayer.SIZE_Y);
-                    chooseX = player.chooseXPosition(mapPlayer.SIZE_X);
+                    chooseY = player.chooseYPosition(Map.SIZE_Y);
+                    chooseX = player.chooseXPosition(Map.SIZE_X);
                     super.setPositionYOneDeckShip(chooseY, i, SIZE_ONE_DECK_SHIP_PLAYER);
                     super.setPositionXOneDeckShip(chooseX, i, SIZE_ONE_DECK_SHIP_PLAYER);
                     y = getPositionYOneDeckShip();
@@ -88,11 +89,11 @@ public class OneDeckShipPlayer extends ShipPlayer {
                     checkShip(y[i], x[i], i, 0);
                 }
             }
-            if (yPosition == mapPlayer.SIZE_Y - 1 && xPosition == mapPlayer.SIZE_X - 1) {
+            if (yPosition == Map.SIZE_Y - 1 && xPosition == Map.SIZE_X - 1) {
                 if (cells[yPosition - 1][xPosition] == 'X' || cells[yPosition][xPosition - 1] == 'X') {
                     System.out.println("Вы не можете разместить корабль вплотную рядом с другим. Прошу, разместите корабль на другую позицию.");
-                    chooseY = player.chooseYPosition(mapPlayer.SIZE_Y);
-                    chooseX = player.chooseXPosition(mapPlayer.SIZE_X);
+                    chooseY = player.chooseYPosition(Map.SIZE_Y);
+                    chooseX = player.chooseXPosition(Map.SIZE_X);
                     super.setPositionYOneDeckShip(chooseY, i, SIZE_ONE_DECK_SHIP_PLAYER);
                     super.setPositionXOneDeckShip(chooseX, i, SIZE_ONE_DECK_SHIP_PLAYER);
                     y = getPositionYOneDeckShip();
