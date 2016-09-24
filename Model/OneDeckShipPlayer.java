@@ -24,10 +24,10 @@ public class OneDeckShipPlayer extends ShipPlayer {
             chooseX = player.chooseXPosition(Map.SIZE_X);
             super.setPositionYOneDeckShip(chooseY, i, SIZE_ONE_DECK_SHIP_PLAYER);
             super.setPositionXOneDeckShip(chooseX, i, SIZE_ONE_DECK_SHIP_PLAYER);
-            y = getPositionYOneDeckShip();
-            x = getPositionXOneDeckShip();
-            checkShip(y[i], x[i], i, 0);
-            mapPlayer.setOneDeckShip(y[i], x[i]);
+            yPositions = getPositionsYOneDeckShips();
+            xPositions = getPositionsXOneDeckShips();
+            checkShip(yPositions[i], xPositions[i], i, 0);
+            mapPlayer.setOneDeckShip(yPositions[i], xPositions[i]);
             mapPlayer.showMapFake();
         }
         System.out.println();
@@ -49,9 +49,9 @@ public class OneDeckShipPlayer extends ShipPlayer {
                 chooseX = player.chooseXPosition(Map.SIZE_X);
                 super.setPositionYOneDeckShip(chooseY, i, SIZE_ONE_DECK_SHIP_PLAYER);
                 super.setPositionXOneDeckShip(chooseX, i, SIZE_ONE_DECK_SHIP_PLAYER);
-                y = getPositionYOneDeckShip();
-                x = getPositionXOneDeckShip();
-                checkShip(y[i], x[i], i, 0);
+                yPositions = getPositionsYOneDeckShips();
+                xPositions = getPositionsXOneDeckShips();
+                checkShip(yPositions[i], xPositions[i], i, 0);
             }
             if (yPosition != Map.SIZE_Y - 1 && xPosition != Map.SIZE_X - 1) {
                 if (cells[yPosition + 1][xPosition] == 'X' || cells[yPosition - 1][xPosition] == 'X' || cells[yPosition][xPosition + 1] == 'X' || cells[yPosition][xPosition - 1] == 'X') {
@@ -60,9 +60,9 @@ public class OneDeckShipPlayer extends ShipPlayer {
                     chooseX = player.chooseXPosition(Map.SIZE_X);
                     super.setPositionYOneDeckShip(chooseY, i, SIZE_ONE_DECK_SHIP_PLAYER);
                     super.setPositionXOneDeckShip(chooseX, i, SIZE_ONE_DECK_SHIP_PLAYER);
-                    y = getPositionYOneDeckShip();
-                    x = getPositionXOneDeckShip();
-                    checkShip(y[i], x[i], i, 0);
+                    yPositions = getPositionsYOneDeckShips();
+                    xPositions = getPositionsXOneDeckShips();
+                    checkShip(yPositions[i], xPositions[i], i, 0);
                 }
             }
             if (yPosition == Map.SIZE_Y - 1 && xPosition != Map.SIZE_X - 1) {
@@ -72,9 +72,9 @@ public class OneDeckShipPlayer extends ShipPlayer {
                     chooseX = player.chooseXPosition(Map.SIZE_X);
                     super.setPositionYOneDeckShip(chooseY, i, SIZE_ONE_DECK_SHIP_PLAYER);
                     super.setPositionXOneDeckShip(chooseX, i, SIZE_ONE_DECK_SHIP_PLAYER);
-                    y = getPositionYOneDeckShip();
-                    x = getPositionXOneDeckShip();
-                    checkShip(y[i], x[i], i, 0);
+                    yPositions = getPositionsYOneDeckShips();
+                    xPositions = getPositionsXOneDeckShips();
+                    checkShip(yPositions[i], xPositions[i], i, 0);
                 }
             }
             if (yPosition != Map.SIZE_Y - 1 && xPosition == Map.SIZE_X - 1) {
@@ -84,9 +84,9 @@ public class OneDeckShipPlayer extends ShipPlayer {
                     chooseX = player.chooseXPosition(Map.SIZE_X);
                     super.setPositionYOneDeckShip(chooseY, i, SIZE_ONE_DECK_SHIP_PLAYER);
                     super.setPositionXOneDeckShip(chooseX, i, SIZE_ONE_DECK_SHIP_PLAYER);
-                    y = getPositionYOneDeckShip();
-                    x = getPositionXOneDeckShip();
-                    checkShip(y[i], x[i], i, 0);
+                    yPositions = getPositionsYOneDeckShips();
+                    xPositions = getPositionsXOneDeckShips();
+                    checkShip(yPositions[i], xPositions[i], i, 0);
                 }
             }
             if (yPosition == Map.SIZE_Y - 1 && xPosition == Map.SIZE_X - 1) {
@@ -96,9 +96,9 @@ public class OneDeckShipPlayer extends ShipPlayer {
                     chooseX = player.chooseXPosition(Map.SIZE_X);
                     super.setPositionYOneDeckShip(chooseY, i, SIZE_ONE_DECK_SHIP_PLAYER);
                     super.setPositionXOneDeckShip(chooseX, i, SIZE_ONE_DECK_SHIP_PLAYER);
-                    y = getPositionYOneDeckShip();
-                    x = getPositionXOneDeckShip();
-                    checkShip(y[i], x[i], i, 0);
+                    yPositions = getPositionsYOneDeckShips();
+                    xPositions = getPositionsXOneDeckShips();
+                    checkShip(yPositions[i], xPositions[i], i, 0);
                 }
             }
             break;

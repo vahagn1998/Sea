@@ -8,16 +8,16 @@ public class OneDeckShipComputer extends ShipComputer {
     Map mapComputer;
     public static final int SIZE_ONE_DECK_SHIP_COMPUTER = 5;
     char[][] cells;
-    int[] oneDeckShipX;
-    int[] oneDeckShipY;
+    int[] oneDeckShipsPositionsX;
+    int[] oneDeckShipsPositionsY;
 
     public OneDeckShipComputer(MapComputer mapComputer) {
         this.mapComputer = mapComputer;
         cells = mapComputer.getCells();
         super.setSizePositionShipX(SIZE_ONE_DECK_SHIP_COMPUTER);
         super.setSizePositionShipY(SIZE_ONE_DECK_SHIP_COMPUTER);
-        oneDeckShipX = super.getPositionShipX();
-        oneDeckShipY = super.getPositionShipY();
+        oneDeckShipsPositionsX = super.getPositionsShipsX();
+        oneDeckShipsPositionsY = super.getPositionsShipsY();
     }
 
     public OneDeckShipComputer(MapPlayer mapPlayer) {
@@ -25,40 +25,40 @@ public class OneDeckShipComputer extends ShipComputer {
         cells = mapPlayer.getCells();
         super.setSizePositionShipX(SIZE_ONE_DECK_SHIP_COMPUTER);
         super.setSizePositionShipY(SIZE_ONE_DECK_SHIP_COMPUTER);
-        oneDeckShipX = super.getPositionShipX();
-        oneDeckShipY = super.getPositionShipY();
+        oneDeckShipsPositionsX = super.getPositionsShipsX();
+        oneDeckShipsPositionsY = super.getPositionsShipsY();
     }
 
     @Override
     public void setShip() {
         cyclePositionShip();
         for (int i = 0; i < SIZE_ONE_DECK_SHIP_COMPUTER; i++) {
-            checkOnOthersShip(oneDeckShipY[i], oneDeckShipX[i], 0);
+            checkOnOthersShip(oneDeckShipsPositionsY[i], oneDeckShipsPositionsX[i], 0);
         }
     }
 
     @Override
     public void cyclePositionShip() {
         for (int i = 0; i < SIZE_ONE_DECK_SHIP_COMPUTER; i++) {
-            oneDeckShipX[i] = randomPositionShip(Map.SIZE_X, SIZE_ONE_DECK_SHIP_COMPUTER);
-            oneDeckShipY[i] = randomPositionShip(Map.SIZE_Y, SIZE_ONE_DECK_SHIP_COMPUTER);
+            oneDeckShipsPositionsX[i] = randomPositionShip(Map.SIZE_X, SIZE_ONE_DECK_SHIP_COMPUTER);
+            oneDeckShipsPositionsY[i] = randomPositionShip(Map.SIZE_Y, SIZE_ONE_DECK_SHIP_COMPUTER);
             checkShip(i);
-            mapComputer.setOneDeckShip(oneDeckShipY[i], oneDeckShipX[i]);
+            mapComputer.setOneDeckShip(oneDeckShipsPositionsY[i], oneDeckShipsPositionsX[i]);
         }
     }
 
     @Override
     public void checkShip(int i) {
         while (returnResultCheckPositionShip(i)) {
-            oneDeckShipX[i] = randomPositionShip(Map.SIZE_X, SIZE_ONE_DECK_SHIP_COMPUTER);
-            oneDeckShipY[i] = randomPositionShip(Map.SIZE_Y, SIZE_ONE_DECK_SHIP_COMPUTER);
+            oneDeckShipsPositionsX[i] = randomPositionShip(Map.SIZE_X, SIZE_ONE_DECK_SHIP_COMPUTER);
+            oneDeckShipsPositionsY[i] = randomPositionShip(Map.SIZE_Y, SIZE_ONE_DECK_SHIP_COMPUTER);
         }
     }
 
     @Override
     public boolean returnResultCheckPositionShip(int i) {
         boolean result = false;
-        if (cells[oneDeckShipY[i]][oneDeckShipX[i]] == 'X') {
+        if (cells[oneDeckShipsPositionsY[i]][oneDeckShipsPositionsX[i]] == 'X') {
             result = true;
         }
         return result;
@@ -93,7 +93,7 @@ public class OneDeckShipComputer extends ShipComputer {
 
     @Override
     public void reinstallShip() {
-        mapComputer.removeOneDeckShip(oneDeckShipY, oneDeckShipX, SIZE_ONE_DECK_SHIP_COMPUTER);
+        mapComputer.removeOneDeckShip(oneDeckShipsPositionsY, oneDeckShipsPositionsX, SIZE_ONE_DECK_SHIP_COMPUTER);
         setShip();
 
     }

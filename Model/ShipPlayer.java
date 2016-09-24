@@ -1,58 +1,58 @@
 package School.homework.SeaBattle.Model;
 
 abstract public class ShipPlayer implements IShipPlayer {
-    private int[] positionYOneDeckShip;
-    private int[] positionXOneDeckShip;
-    private int[] positionYTwoDeckShip;
-    private int[] positionXTwoDeckShip;
-    private int[] secondPositionTwoDeckShip;
+    private int[] positionsYOneDeckShips;
+    private int[] positionsXOneDeckShips;
+    private int[] positionsYTwoDeckShips;
+    private int[] positionsXTwoDeckShips;
+    private int[] secondPositionsTwoDeckShips;
     int chooseX;
     int chooseY;
-    int[] y;
-    int[] x;
+    int[] yPositions;
+    int[] xPositions;
 
     public void setPositionXTwoDeckShip(int positionXTwoDeckShip, int i, int sizeShip) {
-        this.positionXTwoDeckShip = new int[sizeShip];
-        this.positionXTwoDeckShip[i] = positionXTwoDeckShip;
+        this.positionsXTwoDeckShips = new int[sizeShip];
+        this.positionsXTwoDeckShips[i] = positionXTwoDeckShip;
     }
 
     public void setPositionYTwoDeckShip(int positionYTwoDeckShip, int i, int sizeShip) {
-        this.positionYTwoDeckShip = new int[sizeShip];
-        this.positionYTwoDeckShip[i] = positionYTwoDeckShip;
+        this.positionsYTwoDeckShips = new int[sizeShip];
+        this.positionsYTwoDeckShips[i] = positionYTwoDeckShip;
     }
 
     public void setSecondPositionTwoDeckShip(int secondPositionTwoDeckShip, int i, int sizeShip) {
-        this.secondPositionTwoDeckShip = new int[sizeShip];
-        this.secondPositionTwoDeckShip[i] = secondPositionTwoDeckShip;
+        this.secondPositionsTwoDeckShips = new int[sizeShip];
+        this.secondPositionsTwoDeckShips[i] = secondPositionTwoDeckShip;
     }
 
     public int getSecondPositionTwoDeckShip(int i) {
-        return secondPositionTwoDeckShip[i];
+        return secondPositionsTwoDeckShips[i];
     }
 
-    public int[] getPositionXTwoDeckShip() {
-        return positionXTwoDeckShip;
+    public int[] getPositionsXTwoDeckShips() {
+        return positionsXTwoDeckShips;
     }
 
-    public int[] getPositionYTwoDeckShip() {
-        return positionYTwoDeckShip;
+    public int[] getPositionsYTwoDeckShips() {
+        return positionsYTwoDeckShips;
     }
 
-    public int[] getPositionXOneDeckShip() {
-        return positionXOneDeckShip;
+    public int[] getPositionsXOneDeckShips() {
+        return positionsXOneDeckShips;
     }
 
     public void setPositionXOneDeckShip(int positionXOneDeckShip, int i, int sizeShip) {
-        this.positionXOneDeckShip = new int[sizeShip];
-        this.positionXOneDeckShip[i] = positionXOneDeckShip;
+        this.positionsXOneDeckShips = new int[sizeShip];
+        this.positionsXOneDeckShips[i] = positionXOneDeckShip;
     }
 
-    public int[] getPositionYOneDeckShip() {
-        return positionYOneDeckShip;
+    public int[] getPositionsYOneDeckShips() {
+        return positionsYOneDeckShips;
     }
 
     public void setPositionYOneDeckShip(int positionYOneDeckShip, int i, int sizeShip) {
-        this.positionYOneDeckShip = new int[sizeShip];
-        this.positionYOneDeckShip[i] = positionYOneDeckShip;
+        this.positionsYOneDeckShips = new int[sizeShip];
+        this.positionsYOneDeckShips[i] = positionYOneDeckShip;
     }
 }

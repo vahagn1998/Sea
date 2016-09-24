@@ -3,23 +3,23 @@ package School.homework.SeaBattle.Model;
 import java.util.Random;
 
 abstract public class ShipComputer implements IShipComputer {
-    private int[] positionShipX;
-    private int[] positionShipY;
+    private int[] positionsShipsX;
+    private int[] positionsShipsY;
 
-    public int[] getPositionShipX() {
-        return positionShipX;
+    public int[] getPositionsShipsX() {
+        return positionsShipsX;
     }
 
-    public int[] getPositionShipY() {
-        return positionShipY;
+    public int[] getPositionsShipsY() {
+        return positionsShipsY;
     }
 
     public void setSizePositionShipX(int sizeShip) {
-        positionShipX = new int[sizeShip];
+        positionsShipsX = new int[sizeShip];
     }
 
     public void setSizePositionShipY(int sizeShip) {
-        positionShipY = new int[sizeShip];
+        positionsShipsY = new int[sizeShip];
     }
 
     public int randomPositionShip(int sizeX, int sizeShip) {
