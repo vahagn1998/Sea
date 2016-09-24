@@ -1,11 +1,9 @@
 package School.homework.SeaBattle;
 
 import School.homework.SeaBattle.Controller.Computer;
+import School.homework.SeaBattle.Controller.ControllerGame;
 import School.homework.SeaBattle.Controller.Player;
-import School.homework.SeaBattle.Model.OneDeckShipComputer;
-import School.homework.SeaBattle.Model.OneDeckShipPlayer;
-import School.homework.SeaBattle.Model.TwoDeckShipComputer;
-import School.homework.SeaBattle.Model.TwoDeckShipPlayer;
+import School.homework.SeaBattle.Model.*;
 import School.homework.SeaBattle.View.MapComputer;
 import School.homework.SeaBattle.View.MapPlayer;
 
@@ -18,61 +16,15 @@ public class Game {
     TwoDeckShipComputer twoDeckShipComputer = new TwoDeckShipComputer(mapComputer);
     OneDeckShipPlayer oneDeckShipPlayer = new OneDeckShipPlayer(mapPlayer, player);
     TwoDeckShipPlayer twoDeckShipPlayer = new TwoDeckShipPlayer(mapPlayer, player);
-    int variant;
+    ControllerGame controllerGame = new ControllerGame(player, mapPlayer, oneDeckShipComputer, twoDeckShipComputer, oneDeckShipPlayer, twoDeckShipPlayer);
+    ModelGame modelGame = new ModelGame(mapComputer, mapPlayer, player, computer);
 
     // Игра
     public void game() {
-        fillingFieldComputer();
-        fillingFieldPlayer();
-        cycleInstallPositionShip();
+        modelGame.fillingFieldComputer();
+        modelGame.fillingFieldPlayer();
+        controllerGame.cycleInstallPositionShip();
         cycleGame();
-    }
-
-    // Циклы установки кораблей
-    public void cycleInstallPositionShip() {
-        // Размещение кораблей игрока
-        String methodPlacementShip = player.choosePlacementShip();
-        if(methodPlacementShip.equals("manual")){
-            twoDeckShipPlayer.setShip();
-            oneDeckShipPlayer.setShip();
-        }
-        if(methodPlacementShip.equals(("auto"))){
-            twoDeckShipPlayer.setShipAuto(mapPlayer);
-            oneDeckShipPlayer.setShipAuto(mapPlayer);
-        }
-        // Размещение кораблей компьютера
-        twoDeckShipComputer.setShip();
-        oneDeckShipComputer.setShip();
-    }
-
-    // Установка и показ поля компьютера
-    public void fillingFieldComputer() {
-        mapComputer.field();
-        mapComputer.fieldFake();
-        mapComputer.showMapFake();
-        System.out.println();
-    }
-
-    // Установка и показ поля игрока
-    public void fillingFieldPlayer() {
-        mapPlayer.field();
-        mapPlayer.showMapFake();
-    }
-
-    // Удар по позициям компьютера
-    public void playerPositionShot() {
-        variant = 1;
-        int yPositionPlayer = player.yPosition(mapComputer.SIZE_Y);
-        int xPositionPlayer = player.xPosition(mapComputer.SIZE_X);
-        mapComputer.shipShot(yPositionPlayer, xPositionPlayer, variant, computer, player);
-    }
-
-    //Удар по позициям игрока
-    public void computerPositionShot(){
-        variant = 2;
-        int yPositionComputer = computer.yPosition(mapPlayer.SIZE_Y);
-        int xPositionComputer = computer.xPosition(mapPlayer.SIZE_X);
-        mapPlayer.shipShot(yPositionComputer, xPositionComputer, variant, computer, player);
     }
 
     // Закончена ли игра, или нет?
@@ -103,9 +55,9 @@ public class Game {
     // Цикл игры
     public void cycleGame() {
         do {
-            playerPositionShot();
+            modelGame.playerPositionShot();
             mapComputer.showMapFake();
-            computerPositionShot();
+            modelGame.computerPositionShot();
             mapPlayer.showMapFake();
         } while (!( isGameOverComputer() || isGameOverPlayer() ));
     }
